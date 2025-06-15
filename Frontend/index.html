@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NeuraTantra AI - Building the Fabric of Future Intelligence</title>
     <meta name="description" content="India's pioneering Agentic AI platform providing enterprise-grade autonomous agent orchestration" />
+    <!-- Primary stylesheet for global styles -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <!-- AOS for scroll animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Inline styles for section-specific elements not covered by styles.css -->
     <style>
-        /* Enhanced Integrations Section Styles Final */
+        /* Integrations Section - Unique background, masking, and scroll animations */
         .integrations-section {
             padding: 80px 0;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
@@ -59,13 +63,14 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            /* Creates the fade effect at the edges for endless scroll */
             mask-image: linear-gradient(90deg, transparent 0%, white 10%, white 90%, transparent 100%);
             -webkit-mask-image: linear-gradient(90deg, transparent 0%, white 10%, white 90%, transparent 100%);
         }
 
         .scroll-row {
             display: flex;
-            width: 100vw;
+            width: 100vw; /* Occupy full viewport width for horizontal scroll */
             overflow: hidden;
             position: relative;
         }
@@ -74,9 +79,10 @@
             display: flex;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
-            width: max-content;
+            width: max-content; /* Allows content to exceed container width */
         }
 
+        /* Different animation speeds for each row */
         .row-1 .scroll-content {
             animation: scrollLeft 40s linear infinite;
         }
@@ -98,26 +104,26 @@
             align-items: center;
             gap: 8px;
             padding: 10px 18px;
-            margin-right: 16px;
+            margin-right: 16px; /* Spacing between badges */
             background: rgba(79, 209, 197, 0.1);
             border: 1px solid rgba(79, 209, 197, 0.3);
             border-radius: 25px;
             color: #fff;
             font-size: 14px;
             font-weight: 500;
-            white-space: nowrap;
+            white-space: nowrap; /* Prevent text wrapping */
             backdrop-filter: blur(15px);
             transition: all 0.3s ease;
             min-width: fit-content;
             cursor: pointer;
             box-shadow: 0 4px 20px rgba(79, 209, 197, 0.15);
-            flex-shrink: 0;
+            flex-shrink: 0; /* Prevent badges from shrinking */
         }
 
         .integration-badge:hover {
             background: rgba(79, 209, 197, 0.2);
             border-color: rgba(79, 209, 197, 0.5);
-            transform: translateY(-3px);
+            transform: translateY(-3px); /* Lift effect on hover */
             box-shadow: 0 8px 30px rgba(79, 209, 197, 0.25), 0 0 60px rgba(79, 209, 197, 0.15);
         }
 
@@ -132,7 +138,7 @@
             flex-shrink: 0;
         }
 
-        /* Individual badge colors */
+        /* Individual badge colors (using emojis for icons) */
         .composio .badge-icon { background: #6366f1; }
         .confluence .badge-icon { background: #0052cc; }
         .couchbase .badge-icon { background: #ea2328; }
@@ -174,49 +180,158 @@
         .aws .badge-icon { background: #ff9900; }
         .vercel .badge-icon { background: #374151; }
 
+        /* Keyframe animations for horizontal scrolling */
         @keyframes scrollLeft {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         @keyframes scrollRight {
-            0% {
-                transform: translateX(-50%);
-            }
-            100% {
-                transform: translateX(0);
-            }
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
         }
 
         @media (max-width: 768px) {
-            .integrations-title {
-                font-size: 2.5rem;
-            }
+            .integrations-title { font-size: 2.5rem; }
+            .integrations-subtitle { font-size: 1.125rem; padding: 0 20px; }
+            .integration-badge { padding: 8px 14px; font-size: 13px; }
+            .badge-icon { width: 16px; height: 16px; font-size: 11px; }
+        }
 
-            .integrations-subtitle {
-                font-size: 1.125rem;
-                padding: 0 20px;
-            }
+        /* Hero Section - Unique neural network, particle, and orb animations */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1a2e 25%, #16213e 50%, #0f1729 75%, #0a0a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: var(--header-height); /* Account for fixed header */
+        }
 
-            .integration-badge {
-                padding: 8px 14px;
-                font-size: 13px;
-            }
+        .neural-network-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-            .badge-icon {
-                width: 16px;
-                height: 16px;
-                font-size: 11px;
+        .neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #6366f1; /* Primary color particle */
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 15s infinite linear;
+        }
+
+        /* Randomized positions and animation delays/durations for particles */
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; animation-duration: 16s; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; animation-duration: 14s; }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 1s; animation-duration: 18s; }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 3s; animation-duration: 13s; }
+        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; animation-duration: 15s; }
+        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 0.5s; animation-duration: 17s; }
+        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 2.5s; animation-duration: 11s; }
+        .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 4.5s; animation-duration: 19s; }
+        .particle:nth-child(10) { left: 15%; top: 10%; animation-delay: 1.5s; animation-duration: 14s; }
+        .particle:nth-child(11) { left: 25%; top: 90%; animation-delay: 3.5s; animation-duration: 16s; }
+        .particle:nth-child(12) { left: 35%; top: 15%; animation-delay: 0.8s; animation-duration: 12s; }
+        .particle:nth-child(13) { left: 45%; top: 85%; animation-delay: 2.8s; animation-duration: 18s; }
+        .particle:nth-child(14) { left: 55%; top: 35%; animation-delay: 4.8s; animation-duration: 13s; }
+        .particle:nth-child(15) { left: 65%; top: 65%; animation-delay: 1.2s; animation-duration: 15s; }
+        .particle:nth-child(16) { left: 75%; top: 45%; animation-delay: 3.2s; animation-duration: 17s; }
+        .particle:nth-child(17) { left: 85%; top: 55%; animation-delay: 0.3s; animation-duration: 11s; }
+        .particle:nth-child(18) { left: 95%; top: 5%; animation-delay: 2.3s; animation-duration: 19s; background: #8b5cf6; } /* Accent color particle */
+        .particle:nth-child(19) { left: 5%; top: 95%; animation-delay: 4.3s; animation-duration: 14s; background: #8b5cf6; } /* Accent color particle */
+        .particle:nth-child(20) { left: 50%; top: 10%; animation-delay: 1.7s; animation-duration: 16s; background: #8b5cf6; } /* Accent color particle */
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            25% { transform: translate(20px, -30px) scale(1.2); opacity: 0.8; }
+            50% { transform: translate(-15px, -60px) scale(0.8); opacity: 1; }
+            75% { transform: translate(30px, -40px) scale(1.1); opacity: 0.7; }
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px); /* Soft blur effect */
+        }
+
+        .glow-orb-1 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 50%); /* Blue gradient */
+            top: 20%;
+            left: 80%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 50%); /* Purple gradient */
+            bottom: 30%;
+            left: 10%;
+            animation: pulse 10s ease-in-out infinite reverse;
+        }
+
+        .glow-orb-3 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 50%); /* Lighter purple gradient */
+            top: 60%;
+            right: 20%;
+            animation: pulse 12s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                min-width: 250px;
             }
         }
 
-
-
-        /* Added styles for inserted Multi Agents & Chat Assistants section from working.html */
+        /* Styles for Multi Agents & Chat Assistants section (inserted from working.html) */
         .container-working {
             display: flex;
             min-height: 50vh;
@@ -262,11 +377,11 @@
             font-size: 24px;
             font-weight: 600;
             color: #4f9cf9;
-            margin-bottom: 20px;
             background: linear-gradient(135deg, #4f9cf9, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 20px;
         }
 
         .purple-brand-working {
@@ -280,12 +395,12 @@
         .title-working {
             font-size: 48px;
             font-weight: 700;
-            margin-bottom: 20px;
             line-height: 1.1;
             background: linear-gradient(135deg, #ffffff, #e5e7eb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 20px;
         }
 
         @media (max-width: 768px) {
@@ -337,7 +452,7 @@
         }
 
         .start-node {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #22c55e, #16a34a); /* Green */
             color: white;
             top: 120px;
             left: 20px;
@@ -345,21 +460,21 @@
         }
 
         .search-node {
-            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            background: linear-gradient(135deg, #0ea5e9, #0284c7); /* Light Blue */
             color: white;
             top: 40px;
             left: 280px;
         }
 
         .summarize-node {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #3b82f6, #2563eb); /* Blue */
             color: white;
             top: 120px;
             left: 350px;
         }
 
         .request-node {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, #ef4444, #dc2626); /* Red */
             color: white;
             top: 200px;
             left: 280px;
@@ -400,28 +515,11 @@
             opacity: 0.6;
         }
 
-        .line1 {
-            top: 134px;
-            left: 140px;
-            width: 160px;
-            transform: rotate(-20deg);
-        }
+        .line1 { top: 134px; left: 140px; width: 160px; transform: rotate(-20deg); }
+        .line2 { top: 134px; left: 140px; width: 230px; transform: rotate(0deg); }
+        .line3 { top: 134px; left: 140px; width: 160px; transform: rotate(35deg); }
 
-        .line2 {
-            top: 134px;
-            left: 140px;
-            width: 230px;
-            transform: rotate(0deg);
-        }
-
-        .line3 {
-            top: 134px;
-            left: 140px;
-            width: 160px;
-            transform: rotate(35deg);
-        }
-
-        /* Add arrow indicators */
+        /* Arrows for connector lines */
         .line::after {
             content: '';
             position: absolute;
@@ -506,22 +604,11 @@
             scrollbar-color: #444 transparent;
         }
 
-        .chat-messages::-webkit-scrollbar {
-            width: 4px;
-        }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
 
-        .chat-messages::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 4px;
-        }
-
-        .message {
-            margin-bottom: 20px;
-        }
+        .message { margin-bottom: 20px; }
 
         .user-message {
             color: #9ca3af;
@@ -551,7 +638,7 @@
 
         .file-types {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid for file types */
             gap: 12px;
             margin: 24px 0;
         }
@@ -576,12 +663,13 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .pdf { background: linear-gradient(135deg, #dc2626, #b91c1c); }
-        .txt { background: linear-gradient(135deg, #059669, #047857); }
-        .css { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
-        .html { background: linear-gradient(135deg, #ea580c, #c2410c); }
-        .csv { background: linear-gradient(135deg, #16a34a, #15803d); }
-        .xml { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+        /* File type specific background colors */
+        .pdf { background: linear-gradient(135deg, #dc2626, #b91c1c); } /* Red */
+        .txt { background: linear-gradient(135deg, #059669, #047857); } /* Green */
+        .css { background: linear-gradient(135deg, #2563eb, #1d4ed8); } /* Blue */
+        .html { background: linear-gradient(135deg, #ea580c, #c2410c); } /* Orange */
+        .csv { background: linear-gradient(135deg, #16a34a, #15803d); } /* Darker Green */
+        .xml { background: linear-gradient(135deg, #7c3aed, #6d28d9); } /* Purple */
 
         .chat-input {
             display: flex;
@@ -617,9 +705,7 @@
             font-size: 14px;
         }
 
-        .input-field::placeholder {
-            color: #6b7280;
-        }
+        .input-field::placeholder { color: #6b7280; }
 
         .input-icon {
             width: 18px;
@@ -632,9 +718,7 @@
             justify-content: center;
         }
 
-        .input-icon:hover {
-            opacity: 1;
-        }
+        .input-icon:hover { opacity: 1; }
 
         .send-button {
             background: linear-gradient(135deg, #4f9cf9, #3b82f6);
@@ -656,8 +740,117 @@
             box-shadow: 0 6px 16px rgba(79, 156, 249, 0.4);
         }
 
-        .send-button:active {
-            transform: translateY(0) scale(0.98);
+        .send-button:active { transform: translateY(0) scale(0.98); }
+
+        /* Team Section Layout adjustments for responsiveness */
+        .team-grid {
+            display: grid; /* Changed to grid for flexible multi-column layout */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit responsive columns */
+            gap: 2rem; /* Consistent spacing */
+            align-items: start;
+        }
+        .team-member {
+            width: 100%; /* Ensure cards take full width in their grid column */
+            /* Removed max-width as it's handled by grid's minmax */
+        }
+        /* Removed .team-role-card styles as those elements are removed */
+
+        /* Contact Section Layout adjustments for responsiveness */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Side-by-side on desktop, stack on mobile */
+            gap: 4rem; /* Spacing between info and form */
+            align-items: start; /* Align content to the top */
+        }
+        .contact-form .form-group {
+            margin-bottom: 1.5rem; /* Ensure consistent spacing between form fields */
+        }
+        .contact-form .btn {
+            width: auto; /* Allow button to size naturally based on content/padding */
+            min-width: 150px; /* Ensure it's not too small */
+        }
+
+        /* AI Automation Section Styles */
+        .ai-automation-section {
+            padding: var(--section-spacing) 0;
+            /* Changed background to darker tone */
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-automation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Adjusted gradient colors and opacity for better visibility */
+            background: radial-gradient(circle at 70% 30%, rgba(76, 144, 230, 0.3) 0%, transparent 40%),
+                        radial-gradient(circle at 30% 80%, rgba(110, 84, 194, 0.3) 0%, transparent 40%);
+            opacity: 0.8; /* Increased opacity for more prominence */
+            pointer-events: none;
+            animation: rotateBackground 20s linear infinite alternate;
+        }
+
+        @keyframes rotateBackground {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1.1); }
+        }
+
+        .ai-automation-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ai-automation-content .section-title {
+            margin-bottom: 2rem;
+            color: var(--color-text);
+        }
+
+        .ai-automation-points {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .ai-point {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            box-shadow: var(--box-shadow);
+            flex: 1 1 300px; /* Flexible width for responsiveness */
+            max-width: 350px;
+            text-align: left;
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        }
+
+        .ai-point:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-hover);
+            border-color: rgba(76, 144, 230, 0.3);
+        }
+
+        .ai-point h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .ai-point p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Full underline for all section titles */
+        .section-title::after {
+            width: 100%; /* Changed to full width */
         }
     </style>
 </head>
@@ -674,26 +867,10 @@
 
             <!-- Floating particles -->
             <div class="particle-container">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
+                <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+                <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+                <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+                <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
             </div>
 
             <!-- Glowing orbs -->
@@ -713,235 +890,6 @@
             </div>
         </div>
     </section>
-
-    <style>
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0a0f1c 0%, #1a1a2e 25%, #16213e 50%, #0f1729 75%, #0a0a1a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .neural-network-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .neural-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .particle-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #6366f1;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: float 15s infinite linear;
-        }
-
-        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
-        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; animation-duration: 16s; }
-        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; animation-duration: 14s; }
-        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 1s; animation-duration: 18s; }
-        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 3s; animation-duration: 13s; }
-        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; animation-duration: 15s; }
-        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 0.5s; animation-duration: 17s; }
-        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 2.5s; animation-duration: 11s; }
-        .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 4.5s; animation-duration: 19s; }
-        .particle:nth-child(10) { left: 15%; top: 10%; animation-delay: 1.5s; animation-duration: 14s; }
-        .particle:nth-child(11) { left: 25%; top: 90%; animation-delay: 3.5s; animation-duration: 16s; }
-        .particle:nth-child(12) { left: 35%; top: 15%; animation-delay: 0.8s; animation-duration: 12s; }
-        .particle:nth-child(13) { left: 45%; top: 85%; animation-delay: 2.8s; animation-duration: 18s; }
-        .particle:nth-child(14) { left: 55%; top: 35%; animation-delay: 4.8s; animation-duration: 13s; }
-        .particle:nth-child(15) { left: 65%; top: 65%; animation-delay: 1.2s; animation-duration: 15s; }
-        .particle:nth-child(16) { left: 75%; top: 45%; animation-delay: 3.2s; animation-duration: 17s; }
-        .particle:nth-child(17) { left: 85%; top: 55%; animation-delay: 0.3s; animation-duration: 11s; }
-        .particle:nth-child(18) { left: 95%; top: 5%; animation-delay: 2.3s; animation-duration: 19s; background: #8b5cf6; }
-        .particle:nth-child(19) { left: 5%; top: 95%; animation-delay: 4.3s; animation-duration: 14s; background: #8b5cf6; }
-        .particle:nth-child(20) { left: 50%; top: 10%; animation-delay: 1.7s; animation-duration: 16s; background: #8b5cf6; }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.6;
-            }
-            25% {
-                transform: translate(20px, -30px) scale(1.2);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translate(-15px, -60px) scale(0.8);
-                opacity: 1;
-            }
-            75% {
-                transform: translate(30px, -40px) scale(1.1);
-                opacity: 0.7;
-            }
-        }
-
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(1px);
-        }
-
-        .glow-orb-1 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-            top: 20%;
-            left: 80%;
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        .glow-orb-2 {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-            bottom: 30%;
-            left: 10%;
-            animation: pulse 10s ease-in-out infinite reverse;
-        }
-
-        .glow-orb-3 {
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
-            top: 60%;
-            right: 20%;
-            animation: pulse 12s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.6;
-            }
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .hero-content {
-            color: white;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .headline {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subheadline {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
-            color: #cbd5e1;
-            font-weight: 300;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .headline {
-                font-size: 2.5rem;
-            }
-
-            .subheadline {
-                font-size: 1.2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                min-width: 250px;
-            }
-        }
-    </style>
 
     <script>
         // Neural network canvas animation
@@ -986,7 +934,7 @@
                 // Draw node
                 ctx.beginPath();
                 ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(99, 102, 241, 0.6)`;
+                ctx.fillStyle = `rgba(99, 102, 241, 0.6)`; // Using a consistent primary color
                 ctx.fill();
 
                 // Draw connections
@@ -1000,7 +948,7 @@
                         ctx.beginPath();
                         ctx.moveTo(node.x, node.y);
                         ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`; // Using consistent primary color
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -1022,8 +970,11 @@
             });
         });
 
-        // Start animation
-        animate();
+        // Start animation after window loads
+        window.onload = function() {
+            animate();
+        };
+
     </script>
     <!-- Problem & Solution Section -->
     <section id="problem-solution" class="problem-solution-section">
@@ -1560,28 +1511,52 @@
         </div>
     </section>
 
+    <!-- AI Automation and Workflow Section -->
+    <section id="ai-automation-workflow" class="ai-automation-section">
+        <div class="container">
+            <div class="ai-automation-content">
+                <h2 class="section-title">AI Automation & Workflow</h2>
+                <div class="ai-automation-points">
+                    <div class="ai-point" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Streamlined Operations</h3>
+                        <p>Automate repetitive tasks, reduce manual errors, and free up your team for strategic initiatives.</p>
+                    </div>
+                    <div class="ai-point" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Intelligent Decision Making</h3>
+                        <p>Leverage AI to analyze data, predict outcomes, and suggest optimal courses of action in real-time.</p>
+                    </div>
+                    <div class="ai-point" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Customizable Workflows</h3>
+                        <p>Design and deploy flexible AI workflows tailored to your unique business processes and industry needs.</p>
+                    </div>
+                </div>
+                <a href="AI-workflow.html" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="400">Discover AI Workflows</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Market & Opportunity Section -->
    <section id="market-opportunity" class="market-section">
       <div class="container">
           <h2 class="section-title">Market & Opportunity</h2>
           <div class="market-stats">
-              <div class="stat-card" >
+              <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
                   <div class="stat-value">$<span class="counter" data-target="50" data-suffix="B+">0</span></div>
                   <div class="stat-label">Global TAM by 2030</div>
                   <div class="stat-description">Agentic AI Market Potential</div>
               </div>
-              <div class="stat-card" >
+              <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
                   <div class="stat-value"><span class="counter" data-target="45" data-suffix="%">0</span></div>
                   <div class="stat-label">CAGR</div>
                   <div class="stat-description">Growth in Autonomous AI Systems</div>
               </div>
-              <div class="stat-card" >
+              <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
                   <div class="stat-value">₹<span class="counter" data-target="45000" data-suffix="Cr">0</span></div>
                   <div class="stat-label">Indian Market Potential</div>
                   <div class="stat-description">By 2027</div>
               </div>
           </div>
-          <div class="market-insights">
+          <div class="market-insights" data-aos="fade-up">
               <p>The market is rapidly transitioning toward agent-first solutions, with 78% of enterprises planning to implement multi-agent architectures by 2026. Asian enterprises are increasing adoption by 63% year-over-year, with tremendous growth potential in EdTech, FinTech, Healthcare, and LegalTech verticals.</p>
           </div>
       </div>
@@ -1666,11 +1641,12 @@
     <!-- Team Section -->
     <section id="team" class="team-section">
         <div class="container">
-            <h2 class="section-title">Our Team</h2>
+            <h2 class="section-title">Our Team</h2> <!-- Changed title to "Our Team" -->
             <div class="team-grid">
                 <div class="team-member" data-aos="fade-up" data-aos-delay="100">
                     <div class="member-photo">
-                        <img src="vaibhav.jpg" alt="Vaibhav Jain" class="member-image" />
+                        <!-- Placeholder for Vaibhav Jain's image, ensure it exists or replace with a default -->
+                        <img src="vaibhav.jpg" alt="Vaibhav Jain" class="member-image" onerror="this.onerror=null;this.src='https://placehold.co/150x150/111124/f2f2f7?text=VJ';" />
                     </div>
                     <div class="member-info">
                         <h3>Vaibhav Jain</h3>
@@ -1683,13 +1659,24 @@
                         </a>
                     </div>
                 </div>
-                <div class="team-role-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Development Team</h3>
-                    <p>World-class engineers specializing in AI, machine learning, and distributed systems</p>
+                <!-- New placeholder team members -->
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Removed member-photo for generic team members -->
+                    <div class="member-info">
+                        <h3>Development Team</h3>
+                        <p class="member-role">Engineers & Innovators</p>
+                        <p class="member-bio">Dedicated to building robust and scalable AI solutions that push the boundaries of autonomous intelligence.</p>
+                        <!-- Removed LinkedIn link for generic team members -->
+                    </div>
                 </div>
-                <div class="team-role-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Advisory Circle</h3>
-                    <p>Industry veterans and thought leaders guiding our strategic direction</p>
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Removed member-photo for generic team members -->
+                    <div class="member-info">
+                        <h3>Advisory Circle</h3>
+                        <p class="member-role">Strategic Advisors</p>
+                        <p class="member-bio">Guiding our vision with unparalleled industry insights and a commitment to innovation and ethical AI development.</p>
+                        <!-- Removed LinkedIn link for generic team members -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -1708,13 +1695,13 @@
                             <svg class="contact-icon" viewBox="0 0 24 24">
                                 <path d="M20,4H4C2.895,4,2,4.895,2,6v12c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2V6C22,4.895,21.105,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/>
                             </svg>
-                            <a href="mailto:vaibhav@neuratantra.ai">vaibhav@neuratantra.ai</a>
+                            <a href="mailto:neuratantraai@gmail.com">neuratantraai@gmail.com</a>
                         </div>
                         <div class="contact-item">
                             <svg class="contact-icon" viewBox="0 0 24 24">
                                 <path d="M20,15.5C18.8,15.5,17.5,15.3,16.4,14.9C16.3,14.9,16.2,14.9,16.1,14.9C15.8,14.9,15.6,15,15.4,15.2L13.2,17.4C10.4,15.9,8,13.6,6.6,10.8L8.8,8.6C9.1,8.3,9.2,7.9,9,7.6C8.7,6.5,8.5,5.2,8.5,4C8.5,3.5,8,3,7.5,3H4C3.5,3,3,3.5,3,4C3,13.4,10.6,21,20,21C20.5,21,21,20.5,21,20V16.5C21,16,20.5,15.5,20,15.5Z"/>
                             </svg>
-                            <a href="tel:+ 98765 43210"> 98765 43210</a>
+                            <a href="tel:+9599919768">9599919768</a>
                         </div>
                     </div>
                 </div>
@@ -1857,7 +1844,7 @@
         once: true
     });
 
-    // Dynamic component loading
+    // Dynamic component loading for navbar and footer
     async function loadComponent(url, targetId) {
         try {
             const response = await fetch(url);
@@ -1868,164 +1855,11 @@
         }
     }
 
-    // Load navbar and footer
     document.addEventListener('DOMContentLoaded', function() {
         loadComponent('navbar.html', 'navbar-placeholder');
         loadComponent('footer.html', 'footer-placeholder');
-    });
 
-    // Neural Network Animation
-    function createNeuralNetwork() {
-        const svg = document.querySelector('.neural-network');
-        const nodes = [];
-        const connections = [];
-
-        // Create nodes
-        for (let i = 0; i < 50; i++) {
-            const node = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            const x = Math.random() * 1200;
-            const y = Math.random() * 600;
-
-            node.setAttribute('cx', x);
-            node.setAttribute('cy', y);
-            node.setAttribute('r', Math.random() * 3 + 1);
-            node.setAttribute('fill', '#4FD1C5');
-            node.setAttribute('opacity', Math.random() * 0.5 + 0.3);
-
-            nodes.push({ element: node, x, y });
-            svg.appendChild(node);
-        }
-
-        // Create connections
-        nodes.forEach((node, i) => {
-            nodes.slice(i + 1).forEach(otherNode => {
-                const distance = Math.sqrt(
-                    Math.pow(node.x - otherNode.x, 2) +
-                    Math.pow(node.y - otherNode.y, 2)
-                );
-
-                if (distance < 150 && Math.random() > 0.7) {
-                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                    line.setAttribute('x1', node.x);
-                    line.setAttribute('y1', node.y);
-                    line.setAttribute('x2', otherNode.x);
-                    line.setAttribute('y2', otherNode.y);
-                    line.setAttribute('stroke', '#4FD1C5');
-                    line.setAttribute('stroke-width', 0.5);
-                    line.setAttribute('opacity', 0.2);
-
-                    svg.insertBefore(line, svg.firstChild);
-                }
-            });
-        });
-
-        // Animate nodes
-        nodes.forEach(node => {
-            const animation = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
-            animation.setAttribute('attributeName', 'opacity');
-            animation.setAttribute('values', '0.3;0.8;0.3');
-            animation.setAttribute('dur', (Math.random() * 3 + 2) + 's');
-            animation.setAttribute('repeatCount', 'indefinite');
-            node.element.appendChild(animation);
-        });
-    }
-
-    // Counter Animation
-   // Counter Animation
- function initCounters() {
-    const counters = document.querySelectorAll('.counter');
-    const duration = 2000; // Animation duration in ms
-
-    counters.forEach(counter => {
-      let start = 0;
-      const target = parseFloat(counter.getAttribute('data-target'));
-      const suffix = counter.getAttribute('data-suffix') || '';
-      let startTimestamp = null;
-
-      function step(timestamp) {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = timestamp - startTimestamp;
-        const progressRatio = Math.min(progress / duration, 1);
-        const value = Math.floor(progressRatio * target);
-
-        if (value !== start) {
-          counter.textContent = value.toLocaleString() + suffix;
-          start = value;
-        }
-
-        if (progress < duration) {
-          window.requestAnimationFrame(step);
-        } else {
-          counter.textContent = target.toLocaleString() + suffix;
-        }
-      }
-
-      window.requestAnimationFrame(step);
-    });
-  }
-
-  // IntersectionObserver to trigger animation when counters enter viewport
-  function observeCounters() {
-    const counters = document.querySelectorAll('.counter');
-    const options = { threshold: 0.3 };
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          initCounters();
-          observer.disconnect(); // We only need to run once when any counter appears
-        }
-      });
-    }, options);
-
-    counters.forEach(counter => observer.observe(counter));
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    observeCounters();
-  });
-// Call the function to initialize counters
-document.addEventListener("DOMContentLoaded", initCounters);
-
-
-    // Contact Form Handling
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Simulate form submission
-        setTimeout(() => {
-            document.querySelector('.contact-form').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-
-            // Add success animation
-            setTimeout(() => {
-                document.querySelector('.success-animation').style.transform = 'scale(1)';
-                document.querySelector('.success-animation').style.opacity = '1';
-            }, 100);
-        }, 1000);
-    });
-
-    // Smooth scrolling for anchor links
-    document.addEventListener('click', function(e) {
-        if (e.target.matches('a[href^="#"]')) {
-            e.preventDefault();
-            const target = document.querySelector(e.target.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-    });
-
-    // Initialize everything when DOM is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        createNeuralNetwork();
-        initCounters();
-
-        // Inserted working.html JS enhancements:
-
-        // Interactive node scaling on click
+        // Interactive node scaling on click for Multi Agents section
         document.querySelectorAll('#multi-agents-chat .node').forEach(node => {
             node.addEventListener('click', () => {
                 node.style.transform = 'scale(0.95)';
@@ -2041,7 +1875,7 @@ document.addEventListener("DOMContentLoaded", initCounters);
             });
         });
 
-        // File-type badge scaling on click
+        // File-type badge scaling on click for Chat Assistants section
         document.querySelectorAll('#multi-agents-chat .file-type').forEach(file => {
             file.addEventListener('click', () => {
                 file.style.transform = 'scale(1.1)';
@@ -2057,7 +1891,7 @@ document.addEventListener("DOMContentLoaded", initCounters);
             });
         });
 
-        // Send button functionality for chat input
+        // Chat input and send button functionality
         const sendButton = document.querySelector('#multi-agents-chat .send-button');
         const inputField = document.querySelector('#multi-agents-chat .input-field');
         const messagesContainer = document.querySelector('#multi-agents-chat .chat-messages');
@@ -2068,7 +1902,7 @@ document.addEventListener("DOMContentLoaded", initCounters);
                 messageDiv.className = 'message';
                 messageDiv.innerHTML = `<div class="user-message">${inputField.value.trim()}</div>`;
                 messagesContainer.appendChild(messageDiv);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Auto-scroll to latest message
                 inputField.value = '';
                 inputField.focus();
             }
@@ -2077,12 +1911,12 @@ document.addEventListener("DOMContentLoaded", initCounters);
         sendButton.addEventListener('click', sendMessage);
         inputField.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                e.preventDefault();
+                e.preventDefault(); // Prevent default enter key behavior (e.g., new line)
                 sendMessage();
             }
         });
 
-        // Smooth scroll for chat messages
+        // Smooth scroll for chat messages container
         messagesContainer.style.scrollBehavior = 'smooth';
 
         // Hover effects for refresh-icon and input-icon
@@ -2094,6 +1928,91 @@ document.addEventListener("DOMContentLoaded", initCounters);
                 icon.style.transform = 'scale(1)';
             });
         });
+
+        // Counter Animation (remains as is from previous versions)
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const duration = 2000; // Animation duration in ms
+
+            counters.forEach(counter => {
+                let start = 0;
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '';
+                let startTimestamp = null;
+
+                function step(timestamp) {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = timestamp - startTimestamp;
+                    const progressRatio = Math.min(progress / duration, 1);
+                    const value = Math.floor(progressRatio * target);
+
+                    if (value !== start) {
+                        counter.textContent = value.toLocaleString() + suffix;
+                        start = value;
+                    }
+
+                    if (progress < duration) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        counter.textContent = target.toLocaleString() + suffix;
+                    }
+                }
+                window.requestAnimationFrame(step);
+            });
+        }
+
+        // IntersectionObserver to trigger counter animation when counters enter viewport
+        function observeCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const options = { threshold: 0.3 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initCounters();
+                        observer.disconnect(); // Only run animation once
+                    }
+                });
+            }, options);
+            counters.forEach(counter => observer.observe(counter));
+        }
+        observeCounters(); // Call observer on DOMContentLoaded
+
+
+        // Contact Form Handling (basic simulation, no backend)
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Simulate form submission with a message box instead of alert()
+                const formContainer = document.querySelector('.contact-form-container');
+                const originalContent = formContainer.innerHTML;
+
+                formContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, #2ecbaf, #4FD1C5); border-radius: 12px; color: white; animation: fadeIn 0.5s ease-out;">
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for contacting us. We will get back to you shortly.</p>
+                        <button class="btn btn-secondary mt-4" onclick="location.reload()">Send Another Message</button>
+                    </div>
+                `;
+                 // Re-apply AOS if this element fades in via AOS after change
+                 AOS.refresh();
+            });
+        }
+
+        // Smooth scrolling for anchor links (if not handled by styles.css scroll-behavior: smooth)
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="#"]') && !e.target.matches('.nav-links a')) { // Exclude navbar links
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
     });
 </script>
 </body>
