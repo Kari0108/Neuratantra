@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinTech Solutions - NeuraTantra AI</title>
-    <link rel="stylesheet" href="/stylu.css">
+    <link rel="stylesheet" href="stylu.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN for modern, crisp icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
         /* Page-specific styles */
         .hero-section {
@@ -24,10 +27,11 @@
             width: 100%;
             height: 100%;
             background:
-                radial-gradient(circle at 20% 20%, rgba(110, 84, 194, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(76, 144, 230, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(230, 96, 168, 0.1) 0%, transparent 40%);
-            animation: float 8s ease-in-out infinite;
+                radial-gradient(circle at 20% 20%, rgba(110, 84, 194, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(76, 144, 230, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(230, 96, 168, 0.15) 0%, transparent 40%);
+            animation: float 10s ease-in-out infinite; /* Adjusted animation duration */
+            opacity: 0.8; /* Slightly increased opacity for better visibility */
         }
 
         .hero-content {
@@ -60,33 +64,83 @@
             flex: 1;
             position: relative;
             height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .fintech-icons {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+            position: relative; /* Changed to relative to better control positioning of inner icons */
+            width: 80%; /* Adjust as needed */
+            height: 80%; /* Adjust as needed */
+            max-width: 400px; /* Max size for the icon container */
+            max-height: 400px;
         }
 
         .fintech-icon {
             position: absolute;
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.05);
+            width: 90px; /* Slightly larger for more impact */
+            height: 90px;
+            background: rgba(255, 255, 255, 0.08); /* Darker background for visibility */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            animation: float 6s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.15); /* More prominent border */
+            backdrop-filter: blur(12px); /* Stronger blur */
+            animation: float 8s ease-in-out infinite; /* Adjusted animation duration */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Added shadow */
+            transition: all 0.3s ease;
         }
 
-        .fintech-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .fintech-icon:nth-child(2) { top: 10%; right: 20%; animation-delay: 1s; }
-        .fintech-icon:nth-child(3) { bottom: 30%; left: 15%; animation-delay: 2s; }
-        .fintech-icon:nth-child(4) { bottom: 15%; right: 25%; animation-delay: 3s; }
-        .fintech-icon:nth-child(5) { top: 50%; right: 10%; animation-delay: 4s; }
+        .fintech-icon:hover {
+            transform: translateY(-10px) scale(1.1) rotate(5deg); /* More dynamic hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .fintech-icon svg {
+            width: 45px; /* Larger icon size */
+            height: 45px;
+        }
+
+        /* Specific positions and delays for icons */
+        .fintech-icon:nth-child(1) {
+            top: 5%;
+            left: 5%;
+            animation-delay: 0s;
+            background: rgba(110, 84, 194, 0.15); /* Primary */
+            border-color: rgba(110, 84, 194, 0.5);
+        }
+        .fintech-icon:nth-child(2) {
+            top: 0%;
+            right: 10%;
+            animation-delay: 1s;
+            background: rgba(76, 144, 230, 0.15); /* Secondary */
+            border-color: rgba(76, 144, 230, 0.5);
+        }
+        .fintech-icon:nth-child(3) {
+            bottom: 10%;
+            left: 0%;
+            animation-delay: 2s;
+            background: rgba(230, 96, 168, 0.15); /* Accent 1 */
+            border-color: rgba(230, 96, 168, 0.5);
+        }
+        .fintech-icon:nth-child(4) {
+            bottom: 5%;
+            right: 5%;
+            animation-delay: 3s;
+            background: rgba(46, 203, 175, 0.15); /* Accent 2 */
+            border-color: rgba(46, 203, 175, 0.5);
+        }
+        .fintech-icon:nth-child(5) {
+            top: 40%;
+            left: 35%;
+            animation-delay: 4s;
+            background: rgba(110, 84, 194, 0.15); /* Primary */
+            border-color: rgba(110, 84, 194, 0.5);
+        }
+
 
         .challenges-section {
             padding: var(--section-spacing) 0;
@@ -94,82 +148,83 @@
         }
 
         /* Button Base Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: var(--font-size-md);
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    min-width: 180px;
-    white-space: nowrap;
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: var(--font-size-md);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+            white-space: nowrap;
+        }
 
-/* Primary Button */
-.btn-primary {
-    background: linear-gradient(135deg, #6e54c2 0%, #4c90e6 100%);
-    color: white;
-    border: 1px solid transparent;
-}
+        /* Primary Button */
+        .btn-primary {
+            background: linear-gradient(135deg, #6e54c2 0%, #4c90e6 100%);
+            color: white;
+            border: 1px solid transparent;
+        }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(110, 84, 194, 0.4);
-    background: linear-gradient(135deg, #5a45a0 0%, #3a7bc8 100%);
-}
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(110, 84, 194, 0.4);
+            background: linear-gradient(135deg, #5a45a0 0%, #3a7bc8 100%);
+        }
 
-/* Secondary Button */
-.btn-secondary {
-    background: transparent;
-    color: var(--color-text, #ffffff);
-    border: 2px solid rgba(110, 84, 194, 0.5);
-    backdrop-filter: blur(10px);
-}
+        /* Secondary Button */
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text, #ffffff);
+            border: 2px solid rgba(110, 84, 194, 0.5);
+            backdrop-filter: blur(10px);
+        }
 
-.btn-secondary:hover {
-    background: rgba(110, 84, 194, 0.1);
-    border-color: rgba(110, 84, 194, 0.8);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(110, 84, 194, 0.2);
-}
+        .btn-secondary:hover {
+            background: rgba(110, 84, 194, 0.1);
+            border-color: rgba(110, 84, 194, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(110, 84, 194, 0.2);
+        }
 
-/* Button Container */
-.cta-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
+        /* Button Container */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-start; /* Aligned to start for text section */
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
 
-/* CSS Variables (add these if they're missing) */
-:root {
-    --font-size-md: 1rem;
-    --color-text: #ffffff;
-    --transition-medium: 0.3s ease;
-}
+        /* CSS Variables (add these if they're missing) */
+        :root {
+            --font-size-md: 1rem;
+            --color-text: #ffffff;
+            --transition-medium: 0.3s ease;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .cta-buttons {
-        flex-direction: column;
-        gap: 1rem;
-    }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                justify-content: center; /* Center buttons on mobile */
+            }
 
-    .btn {
-        width: 100%;
-        max-width: 280px;
-        padding: 1.2rem 2rem;
-    }
-}
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 1.2rem 2rem;
+            }
+        }
 
         .challenges-grid {
             display: grid;
@@ -432,35 +487,46 @@
                     Driving financial intelligence and risk automation with cutting-edge AI agents that transform traditional banking and financial services.
                 </p>
                 <div class="cta-buttons">
-                    <button class="btn btn-primary">Schedule a Demo</button>
-                    <button class="btn btn-secondary">Explore Integration</button>
+                    <!-- Updated to use anchor tags with button styling -->
+                    <a href="#" class="btn btn-primary">Schedule a Demo</a>
+                    <a href="#" class="btn btn-secondary">Explore Integration</a>
                 </div>
             </div>
             <div class="hero-visual reveal reveal-delay-1">
                 <div class="fintech-icons">
                     <div class="fintech-icon">
-                        <svg width="40" height="40" fill="currentColor" style="color: var(--color-primary)">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-banknote" style="color: var(--color-primary)">
+                            <path d="M6 3H2a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h4Z"/>
+                            <path d="M18 21h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4"/>
+                            <path d="M8 2h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+                            <path d="M12 12v.01"/>
+                            <path d="M11 7h2"/>
+                            <path d="M11 17h2"/>
                         </svg>
                     </div>
                     <div class="fintech-icon">
-                        <svg width="40" height="40" fill="currentColor" style="color: var(--color-secondary)">
-                            <path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2v6z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check" style="color: var(--color-secondary)">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="m9 12 2 2 4-4"/>
                         </svg>
                     </div>
                     <div class="fintech-icon">
-                        <svg width="40" height="40" fill="currentColor" style="color: var(--color-accent-1)">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M17,13H13V17H11V13H7V11H11V7H13V11H17V13Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity" style="color: var(--color-accent-1)">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                         </svg>
                     </div>
                     <div class="fintech-icon">
-                        <svg width="40" height="40" fill="currentColor" style="color: var(--color-accent-2)">
-                            <path d="M9,11H15L13,9L11,11M7,9V11H9V13H11V11H13V13H15V11H17V9H15L13,7L11,9H7Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-piggy-bank" style="color: var(--color-accent-2)">
+                            <path d="M19 5c-1.5 0-2.8 1.4-3 2H5v2"/>
+                            <path d="M2 8v8c0 1.1.9 2 2 2h14a4 4 0 0 0 4-4V6a2 2 0 0 0-2-2h-3.4"/>
+                            <path d="M14.24 14.24A2 2 0 0 1 12 16h0a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2z"/>
+                            <path d="M20 9h2"/>
                         </svg>
                     </div>
                     <div class="fintech-icon">
-                        <svg width="40" height="40" fill="currentColor" style="color: var(--color-primary)">
-                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up" style="color: var(--color-primary)">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                            <polyline points="16 7 22 7 22 13"/>
                         </svg>
                     </div>
                 </div>
@@ -505,8 +571,11 @@
         <div class="challenges-grid">
             <div class="challenge-card reveal reveal-delay-1">
                 <div class="challenge-icon">
-                    <svg width="30" height="30" fill="white">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gantt-chart">
+                        <path d="M8 6H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4"/>
+                        <path d="M12 16h8a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-8"/>
+                        <rect x="2" y="14" width="6" height="4" rx="2"/>
+                        <rect x="16" y="4" width="6" height="4" rx="2"/>
                     </svg>
                 </div>
                 <h3 class="card-title">Manual Risk Analysis</h3>
@@ -517,8 +586,10 @@
 
             <div class="challenge-card reveal reveal-delay-2">
                 <div class="challenge-icon">
-                    <svg width="30" height="30" fill="white">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle">
+                        <path d="m21.73 18-8.1-14.7c-.3-1-1.7-1-2 0l-8.1 14.7c-.3.5-.1 1.2.3 1.5h16.2c.4-.3.6-1 .3-1.5z"/>
+                        <path d="M12 9v4"/>
+                        <path d="M12 17h.01"/>
                     </svg>
                 </div>
                 <h3 class="card-title">Fraud Detection Lag</h3>
@@ -529,8 +600,11 @@
 
             <div class="challenge-card reveal reveal-delay-3">
                 <div class="challenge-icon">
-                    <svg width="30" height="30" fill="white">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass">
+                        <path d="M12 2v6h.5a2 2 0 0 1 2 2.5V14a2.5 2.5 0 0 1-2.5 2.5h-1A2.5 2.5 0 0 1 9 14v-3.5a2 2 0 0 1 2-2.5H12Z"/>
+                        <path d="M4 22H20"/>
+                        <path d="M20 2H4"/>
+                        <path d="M20 14.5a2.5 2.5 0 0 0-2.5-2.5h-1.5a.5.5 0 0 1-.5-.5V7.5a.5.5 0 0 1 .5-.5h.5A2.5 2.5 0 0 1 19 9.5v5Z"/>
                     </svg>
                 </div>
                 <h3 class="card-title">Customer Onboarding Delays</h3>
@@ -555,8 +629,13 @@
             <div class="solution-card reveal reveal-delay-1">
                 <div class="solution-header">
                     <div class="solution-icon">
-                        <svg width="25" height="25" fill="white">
-                            <path d="M9 11H7v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h5v2zm0-6H4V5h5v6z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge">
+                            <path d="M12 18a6 6 0 0 0 0-12"/>
+                            <path d="M7 11l-4 4L2 13"/>
+                            <path d="M17 11l4 4 1-2"/>
+                            <path d="M2.5 13.5L5 11"/>
+                            <path d="M19 11l2.5 2.5"/>
+                            <circle cx="12" cy="13" r="2"/>
                         </svg>
                     </div>
                     <h3 class="card-title">AI Risk Assessment Agents</h3>
@@ -580,8 +659,10 @@
             <div class="solution-card reveal reveal-delay-2">
                 <div class="solution-header">
                     <div class="solution-icon">
-                        <svg width="25" height="25" fill="white">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.8 15.2L6.4 12.4l1.4-1.4 2.4 2.4L16 7.6l1.4 1.4-6.2 6.2z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-alert">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M12 8v4"/>
+                            <path d="M12 16h.01"/>
                         </svg>
                     </div>
                     <h3 class="card-title">Advanced Fraud Detection</h3>
@@ -605,8 +686,8 @@
             <div class="solution-card reveal reveal-delay-3">
                 <div class="solution-header">
                     <div class="solution-icon">
-                        <svg width="25" height="25" fill="white">
-                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+                            <path d="M7.9 20A9.9 9.9 0 0 1 4 15.1V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3.1L7.9 20Z"/>
                         </svg>
                     </div>
                     <h3 class="card-title">Conversational AI Support</h3>
@@ -681,8 +762,9 @@
         <div class="security-grid">
             <div class="security-item reveal reveal-delay-1">
                 <div class="security-icon">
-                    <svg width="20" height="20" fill="white">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock">
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                 </div>
                 <div>
@@ -692,8 +774,10 @@
             </div>
             <div class="security-item reveal reveal-delay-2">
                 <div class="security-icon">
-                    <svg width="20" height="20" fill="white">
-                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key">
+                        <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2L9 3 2 18Z"/>
+                        <path d="M14 14V9h5l3 3v2Z"/>
+                        <path d="M14 14H9"/>
                     </svg>
                 </div>
                 <div>
@@ -703,8 +787,9 @@
             </div>
             <div class="security-item reveal reveal-delay-3">
                 <div class="security-icon">
-                    <svg width="20" height="20" fill="white">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-credit-card">
+                        <rect width="20" height="14" x="2" y="5" rx="2"/>
+                        <path d="M2 10h20"/>
                     </svg>
                 </div>
                 <div>
@@ -714,8 +799,10 @@
             </div>
             <div class="security-item reveal reveal-delay-4">
                 <div class="security-icon">
-                    <svg width="20" height="20" fill="white">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2"/>
+                        <path d="M2 12h20"/>
                     </svg>
                 </div>
                 <div>
@@ -725,8 +812,10 @@
             </div>
             <div class="security-item reveal reveal-delay-5">
                 <div class="security-icon">
-                    <svg width="20" height="20" fill="white">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.8 15.2L6.4 12.4l1.4-1.4 2.4 2.4L16 7.6l1.4 1.4-6.2 6.2z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-check">
+                        <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <path d="m9 14 2 2 4-4"/>
                     </svg>
                 </div>
                 <div>
@@ -736,8 +825,9 @@
             </div>
             <div class="security-item reveal reveal-delay-6">
                 <div class="security-icon">
-                    <svg width="20" height="20" fill="white">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-line-chart">
+                        <path d="M3 3v18h18"/>
+                        <path d="m18 10-5 5-4-4-3 3"/>
                     </svg>
                 </div>
                 <div>
@@ -758,14 +848,18 @@
                 Join leading financial institutions already leveraging NeuraTantra's AI agents to drive innovation and growth.
             </p>
             <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="window.open('https://calendly.com/neuratantra', '_blank')">Schedule a Demo</button>
-                <button class="btn btn-secondary" onclick="window.location.href='/integration-guide'">Explore Integration</button>
+                <!-- Updated to use anchor tags with button styling -->
+                <a href="https://calendly.com/neuratantra" target="_blank" class="btn btn-primary">Schedule a Demo</a>
+                <a href="/integration-guide" class="btn btn-secondary">Explore Integration</a>
             </div>
         </div>
     </div>
 </section>
 
 <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
     // Intersection Observer for reveal animations
     const observerOptions = {
         threshold: 0.1,
@@ -804,22 +898,35 @@
     function animateStats() {
         const stats = document.querySelectorAll('.stat-number');
         stats.forEach(stat => {
-            const target = parseInt(stat.textContent);
+            // Check if the stat is '24/7' and skip animation if so
+            if (stat.textContent.includes('24/7')) {
+                return;
+            }
+
+            const target = parseFloat(stat.textContent);
             const isPercentage = stat.textContent.includes('%');
-            const is247 = stat.textContent.includes('24/7');
-
-            if (is247) return; // Skip 24/7 animation
-
             let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
+            const duration = 2000; // milliseconds
+            let startTimestamp = null;
+
+            function step(timestamp) {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = timestamp - startTimestamp;
+                const progressRatio = Math.min(progress / duration, 1);
+                const value = Math.floor(progressRatio * target);
+
+                if (value !== current) {
+                    stat.textContent = value + (isPercentage ? '%' : '');
+                    current = value;
                 }
-                stat.textContent = Math.floor(current) + (isPercentage ? '%' : '');
-            }, 40);
+
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    stat.textContent = target + (isPercentage ? '%' : '');
+                }
+            }
+            window.requestAnimationFrame(step);
         });
     }
 
@@ -828,10 +935,10 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 animateStats();
-                statsObserver.unobserve(entry.target);
+                statsObserver.unobserve(entry.target); // Stop observing after animation
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
 
     document.addEventListener('DOMContentLoaded', () => {
         const statsSection = document.querySelector('.stats-section');
@@ -844,23 +951,30 @@
     function loadExternalHTML() {
         // Load navbar
         fetch('/navbar.html')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error('Navbar fetch failed');
+                return response.text();
+            })
             .then(data => {
                 document.body.insertAdjacentHTML('afterbegin', data);
             })
-            .catch(error => console.log('Navbar not found:', error));
+            .catch(error => console.error('Error loading navbar:', error));
 
         // Load footer
         fetch('/footer.html')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error('Footer fetch failed');
+                return response.text();
+            })
             .then(data => {
                 document.body.insertAdjacentHTML('beforeend', data);
             })
-            .catch(error => console.log('Footer not found:', error));
+            .catch(error => console.error('Error loading footer:', error));
     }
 
     // Load external components when DOM is ready
     document.addEventListener('DOMContentLoaded', loadExternalHTML);
+
 </script>
 
 <style>
@@ -942,6 +1056,11 @@
     @keyframes loading {
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
+    }
+
+    /* Full underline for section titles */
+    .section-title::after {
+        width: 100%; /* Changed to full width */
     }
 </style>
 </body>
