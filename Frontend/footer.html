@@ -43,7 +43,7 @@
             background-color: var(--color-bg);
             color: var(--color-text);
             min-height: 100vh;
-            padding-bottom: 400px; /* Demo spacing */
+
         }
 
         /* Enhanced Footer Styles */
@@ -99,22 +99,19 @@
         }
 
         .footer-logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            border-radius: var(--border-radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .footer-logo-icon::before {
-            content: '⚡';
-            font-size: 20px;
-            color: white;
-        }
-
+    width: 40px;
+    height: 40px;
+    background: #fff; /* or whatever background color you want */
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('logo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
         .footer-brand-text {
             font-size: var(--font-size-2xl);
             font-weight: 700;
@@ -557,8 +554,7 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="team.html">Our Team</a></li>
                         <li><a href="investors.html">Investors</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="press.html">Press Kit</a></li>
+
                     </ul>
                 </div>
 
@@ -566,10 +562,10 @@
                     <h3 class="footer-nav-title">Solutions</h3>
                     <ul class="footer-nav-links">
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="agent-os.html">AgentOS Lite</a></li>
+                        <li><a href="agentos.html">AgentOS Lite</a></li>
                         <li><a href="agent-builder.html">Agent Builder</a></li>
-                        <li><a href="consulting.html">Consulting</a></li>
-                        <li><a href="enterprise.html">Enterprise</a></li>
+                        <li><a href="ConsultingServicesPage.html">Consulting</a></li>
+
                     </ul>
                 </div>
 
@@ -577,7 +573,7 @@
                     <h3 class="footer-nav-title">Resources</h3>
                     <ul class="footer-nav-links">
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
                         <li><a href="case-studies.html">Case Studies</a></li>
                         <li><a href="whitepapers.html">Whitepapers</a></li>
                         <li><a href="webinars.html">Webinars</a></li>
