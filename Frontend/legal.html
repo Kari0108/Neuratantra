@@ -1,51 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentic AI for LegalTech | NeuraTantra AI</title>
-    <meta name="description" content="Transform your legal practice with NeuraTantra AI's advanced agentic AI solutions. Automate research, document review, and case analysis with intelligent AI agents.">
-    <link rel="stylesheet" href="stylu.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agentic AI for LegalTech - NeuraTantra AI</title>
+    <link rel="stylesheet" href="stylu.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* Legal-specific animations and effects */
-       
-
+        body {
+            margin: 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 10, 23, 0.95) 0%, rgba(17, 17, 36, 0.95) 100%),
+                        radial-gradient(circle at 20% 50%, rgba(110, 84, 194, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(76, 144, 230, 0.1) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: gridFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes gridFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 800px;
         }
-
-        .legal-icon {
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.5rem;
+            background: rgba(110, 84, 194, 0.1);
+            border: 1px solid rgba(110, 84, 194, 0.3);
+            border-radius: 50px;
+            color: var(--color-primary);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .hero-visual {
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 600px;
+            height: 600px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(110, 84, 194, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 20%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
             width: 80px;
             height: 80px;
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: float-animation 3s ease-in-out infinite;
+            top: 80%;
+            right: 30%;
+            animation-delay: 4s;
         }
-
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Challenges Section */
+        .challenges {
+            padding: var(--section-spacing) 0;
+            background: var(--color-bg-alt);
+        }
+        
         .challenges-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin-top: 3rem;
         }
-
-        .challenge-card {
-            background: rgba(22, 22, 45, 0.8);
-            border: 1px solid rgba(220, 38, 127, 0.2);
-            border-radius: var(--border-radius-lg);
+        
+        .challenge-item {
+            background: var(--color-card-bg);
             padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--color-border);
             position: relative;
             overflow: hidden;
             transition: all var(--transition-medium);
         }
-
-        .challenge-card::before {
+        
+        .challenge-item::before {
             content: '';
             position: absolute;
             top: 0;
@@ -54,492 +167,407 @@
             height: 3px;
             background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
         }
-
-        .challenge-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(220, 38, 127, 0.4);
-            box-shadow: 0 20px 40px rgba(220, 38, 127, 0.1);
+        
+        .challenge-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(110, 84, 194, 0.3);
         }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin: 4rem 0;
-        }
-
-        .feature-card {
-            background: rgba(22, 22, 45, 0.9);
-            border: 1px solid rgba(76, 144, 230, 0.2);
-            border-radius: var(--border-radius-lg);
-            padding: 2.5rem;
-            position: relative;
-            transition: all var(--transition-medium);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(76, 144, 230, 0.4);
-            box-shadow: 0 25px 50px rgba(76, 144, 230, 0.15);
-        }
-
-        .feature-icon {
+        
+        .challenge-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-            border-radius: var(--border-radius-md);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
-
-        .workflow-section {
-            background: rgba(17, 17, 36, 0.5);
-            border-radius: var(--border-radius-xl);
+        
+        .challenge-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .challenge-description {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: var(--section-spacing) 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: var(--color-card-bg);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--color-border);
+            position: relative;
+            transition: all var(--transition-medium);
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(110, 84, 194, 0.2);
+            border-color: rgba(110, 84, 194, 0.4);
+        }
+        
+        .feature-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-subtitle {
+            color: var(--color-text-muted);
+            font-size: var(--font-size-md);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--color-accent-2), var(--color-primary));
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            margin-right: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Workflow Section */
+        .workflow {
+            padding: var(--section-spacing) 0;
+            background: var(--color-bg-alt);
+        }
+        
+        .workflow-visual {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-lg);
             padding: 4rem 2rem;
-            margin: 4rem 0;
+            margin-top: 3rem;
+            border: 1px solid var(--color-border);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-
-        .workflow-section::before {
+        
+        .workflow-visual::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent 40%, rgba(110, 84, 194, 0.05) 50%, transparent 60%);
-            z-index: 0;
-        }
-
-        .workflow-content {
-            position: relative;
+            background: linear-gradient(45deg, rgba(110, 84, 194, 0.05) 0%, rgba(76, 144, 230, 0.05) 100%);
             z-index: 1;
         }
-
-        .workflow-placeholder {
-            background: rgba(255, 255, 255, 0.02);
-            border: 2px dashed rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius-lg);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 2rem 0;
+        
+        .workflow-content {
             position: relative;
+            z-index: 2;
         }
-
+        
         .workflow-steps {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-
+        
         .workflow-step {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
-
-        .workflow-step::after {
-            content: '→';
-            position: absolute;
-            top: 50%;
-            right: -1rem;
-            transform: translateY(-50%);
-            color: var(--color-primary);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .workflow-step:last-child::after {
-            display: none;
-        }
-
+        
         .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
+            color: white;
             font-weight: 600;
+            font-size: var(--font-size-sm);
         }
-
-        .cta-section {
-            background: linear-gradient(135deg, rgba(110, 84, 194, 0.1) 0%, rgba(76, 144, 230, 0.1) 100%);
-            border-radius: var(--border-radius-xl);
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            text-align: center;
-        }
-
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .stat-number {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        
+        .step-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
-
-        .stat-label {
+        
+        .step-description {
             color: var(--color-text-muted);
             font-size: var(--font-size-sm);
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
-
+        
+        /* CTA Section */
+        .cta-section {
+            padding: var(--section-spacing) 0;
+            background: linear-gradient(135deg, rgba(110, 84, 194, 0.1) 0%, rgba(76, 144, 230, 0.1) 100%);
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .challenges-grid,
-            .features-grid {
-                grid-template-columns: 1fr;
+            .hero-visual {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
             .workflow-steps {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
             
-            .workflow-step::after {
-                content: '↓';
-                position: static;
-                display: block;
-                margin: 1rem 0;
-            }
-            
-            .workflow-step:last-child::after {
-                display: none;
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
     </style>
 </head>
-<body style="margin: 0;">
-    <!-- Navigation -->
-   <header class="site-header" id="header">
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="/">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 40 40" class="logo-svg">
-                            <circle cx="20" cy="20" r="18" class="logo-circle" fill="none" stroke="currentColor" stroke-width="1"/>
-                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
-                            <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                            <circle cx="28" cy="12" r="2" fill="currentColor"/>
-                            <circle cx="12" cy="28" r="2" fill="currentColor"/>
-                            <circle cx="28" cy="28" r="2" fill="currentColor"/>
-                            <line x1="20" y1="20" x2="12" y2="12" stroke="currentColor" stroke-width="1"/>
-                            <line x1="20" y1="20" x2="28" y2="12" stroke="currentColor" stroke-width="1"/>
-                            <line x1="20" y1="20" x2="12" y2="28" stroke="currentColor" stroke-width="1"/>
-                            <line x1="20" y1="20" x2="28" y2="28" stroke="currentColor" stroke-width="1"/>
-                        </svg>
-                    </div>
-                    <span>NeuraTantra<span class="accent">AI</span></span>
-                </a>
-            </div>
+<body>
 
-            <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </div>
+    <!-- Navbar placeholder -->
+    <div id="navbar-container"></div>
 
-            <div class="nav-container" id="navContainer">
-                <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="dropdown">
-                            <a href="products.html" class="dropdown-toggle">Products <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="agentos.html">AgentOS Lite</a></li>
-                                <li><a href="agent-builder.html">Agent Builder</a></li>
-                                <li><a href="ConsultingServicesPage.html">Consulting</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="solutions.html" class="dropdown-toggle">Solutions <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="edtech.html">EdTech</a></li>
-                                <li><a href="fintech.html">FinTech</a></li>
-                                <li><a href="healthcare.html">Healthcare</a></li>
-                                <li><a href="legal.html">LegalTech</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about.html">Company</a></li>
-                        <li><a href="about.html">Resources</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="nav-cta">
-                    <a href="demo.html" class="btn btn-primary">Request Demo</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    ⚡ Revolutionary Legal AI Technology
+                </div>
+                <h1 class="hero-title">Agentic AI for LegalTech</h1>
+                <p class="hero-subtitle">
+                    Transform your legal operations with intelligent AI agents that automate complex workflows, analyze documents with precision, and accelerate case management by up to 80%.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn btn-primary btn-large">Request Demo</a>
+                    <a href="#specialist" class="btn btn-secondary btn-large">Talk to Specialist</a>
                 </div>
             </div>
         </div>
-    </div>
-</header>
-
-
-    <!-- Hero Section -->
-    <section class="legal-hero"><br>
-        <div class="container"><br>
-            <div class="hero-content text-center"><br>
-                <div class="legal-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
-                        <path d="M12 1l11 11h-3v9h-6v-6H10v6H4v-9H1L12 1z"/>
-                    </svg>
-                </div>
-                <h1 class="section-title" style="font-size: var(--font-size-5xl); margin-bottom: 1rem;">
-                    Agentic AI for <span class="text-gradient">LegalTech</span>
-                </h1>
-                <p style="font-size: var(--font-size-xl); color: var(--color-text-muted); max-width: 800px; margin: 0 auto 2rem;">
-                    Transform your legal practice with intelligent AI agents that automate research, streamline document review, and accelerate case analysis with unprecedented accuracy.
-                </p>
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <div class="stat-number">90%</div>
-                        <div class="stat-label">Faster Research</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">85%</div>
-                        <div class="stat-label">Cost Reduction</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Accuracy Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Availability</div>
-                    </div>
-                </div>
-                <div class="cta-buttons">
-                    <a href="demo.html" class="btn btn-primary">Request Demo</a>
-                    <a href="contact.html" class="btn btn-secondary">Talk to Specialist</a>
-                </div>
-            </div>
+        
+        <div class="hero-visual">
+            <svg viewBox="0 0 600 600" fill="none">
+                <circle cx="300" cy="300" r="250" stroke="rgba(110, 84, 194, 0.2)" stroke-width="2"/>
+                <circle cx="300" cy="300" r="200" stroke="rgba(76, 144, 230, 0.2)" stroke-width="2"/>
+                <circle cx="300" cy="300" r="150" stroke="rgba(230, 96, 168, 0.2)" stroke-width="2"/>
+            </svg>
         </div>
     </section>
 
-    <!-- LegalTech Challenges -->
-    <section style="padding: var(--section-spacing) 0;">
+    <!-- Challenges Section -->
+    <section class="challenges">
         <div class="container">
             <h2 class="section-title text-center">LegalTech Industry Challenges</h2>
-            <p class="text-center" style="font-size: var(--font-size-lg); color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3rem;">
-                The legal industry faces unprecedented challenges that demand innovative solutions. Our agentic AI addresses these critical pain points.
+            <p class="text-center" style="font-size: var(--font-size-lg); color: var(--color-text-muted); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Legal professionals face unprecedented pressure to deliver faster, more accurate results while managing ever-increasing caseloads and complex regulatory requirements.
             </p>
             
             <div class="challenges-grid">
-                <div class="challenge-card reveal">
-                    <h3 style="color: var(--color-accent-1); margin-bottom: 1rem;">Information Overload</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Legal professionals spend 60% of their time on document review and research, struggling to process vast amounts of case law, regulations, and precedents efficiently.
+                <div class="challenge-item reveal">
+                    <div class="challenge-icon">⏱️</div>
+                    <h3 class="challenge-title">Time-Intensive Research</h3>
+                    <p class="challenge-description">
+                        Legal professionals spend 60-70% of their time on manual research and document review, reducing billable hours and client value delivery.
                     </p>
-                    <div style="font-weight: 600; color: var(--color-text);">
-                        Impact: Delayed case resolution, increased costs, missed opportunities
-                    </div>
                 </div>
-
-                <div class="challenge-card reveal reveal-delay-1">
-                    <h3 style="color: var(--color-accent-1); margin-bottom: 1rem;">Manual Processes</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Traditional legal workflows rely heavily on manual document drafting, contract analysis, and case preparation, leading to inconsistencies and human error.
+                
+                <div class="challenge-item reveal reveal-delay-1">
+                    <div class="challenge-icon">📋</div>
+                    <h3 class="challenge-title">Document Complexity</h3>
+                    <p class="challenge-description">
+                        Managing thousands of contracts, case files, and regulatory documents manually leads to errors, missed deadlines, and compliance risks.
                     </p>
-                    <div style="font-weight: 600; color: var(--color-text);">
-                        Impact: Reduced productivity, quality variations, scalability issues
-                    </div>
                 </div>
-
-                <div class="challenge-card reveal reveal-delay-2">
-                    <h3 style="color: var(--color-accent-1); margin-bottom: 1rem;">Rising Client Expectations</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Clients demand faster turnaround times, transparent pricing, and higher quality outcomes while expecting competitive rates in an increasingly digital world.
+                
+                <div class="challenge-item reveal reveal-delay-2">
+                    <div class="challenge-icon">⚖️</div>
+                    <h3 class="challenge-title">Regulatory Compliance</h3>
+                    <p class="challenge-description">
+                        Keeping up with constantly changing laws and regulations while ensuring full compliance across all cases and client matters.
                     </p>
-                    <div style="font-weight: 600; color: var(--color-text);">
-                        Impact: Pressure on margins, need for efficiency, competitive disadvantage
-                    </div>
                 </div>
-
-                <div class="challenge-card reveal reveal-delay-3">
-                    <h3 style="color: var(--color-accent-1); margin-bottom: 1rem;">Compliance & Risk Management</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Navigating complex regulatory landscapes and ensuring compliance across multiple jurisdictions while managing legal risks becomes increasingly complex.
+                
+                <div class="challenge-item reveal reveal-delay-3">
+                    <div class="challenge-icon">💰</div>
+                    <h3 class="challenge-title">Cost Pressures</h3>
+                    <p class="challenge-description">
+                        Clients demand more efficient service delivery and cost transparency while maintaining the highest quality legal outcomes.
                     </p>
-                    <div style="font-weight: 600; color: var(--color-text);">
-                        Impact: Regulatory penalties, reputation damage, operational disruptions
-                    </div>
-                </div>
-
-                <div class="challenge-card reveal reveal-delay-1">
-                    <h3 style="color: var(--color-accent-1); margin-bottom: 1rem;">Resource Constraints</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Limited resources force legal teams to prioritize cases, often leading to suboptimal outcomes and missed opportunities for thorough analysis.
-                    </p>
-                    <div style="font-weight: 600; color: var(--color-text);">
-                        Impact: Burnout, case backlogs, reduced service quality
-                    </div>
-                </div>
-
-                <div class="challenge-card reveal reveal-delay-2">
-                    <h3 style="color: var(--color-accent-1); margin-bottom: 1rem;">Technology Adoption Barriers</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Legacy systems, resistance to change, and concerns about data security create barriers to adopting modern technological solutions.
-                    </p>
-                    <div style="font-weight: 600; color: var(--color-text);">
-                        Impact: Competitive disadvantage, inefficient workflows, missed innovations
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Features -->
-    <section style="padding: var(--section-spacing) 0; background: rgba(17, 17, 36, 0.3);">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
             <h2 class="section-title text-center">Key Features</h2>
-            <p class="text-center" style="font-size: var(--font-size-lg); color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3rem;">
-                Our agentic AI solutions provide comprehensive automation and intelligence for modern legal practices.
+            <p class="text-center" style="font-size: var(--font-size-lg); color: var(--color-text-muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Our agentic AI platform delivers comprehensive solutions designed specifically for modern legal practices.
             </p>
             
             <div class="features-grid">
                 <div class="feature-card reveal">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"/>
-                            <polyline points="14,2 14,8 20,8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                            <polyline points="10,9 9,9 8,9"/>
-                        </svg>
+                    <div class="feature-header">
+                        <div class="feature-icon">🤖</div>
+                        <h3 class="feature-title">Intelligent Document Analysis</h3>
+                        <p class="feature-subtitle">AI-powered contract and case analysis</p>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Intelligent Document Analysis</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Advanced AI agents automatically analyze contracts, legal documents, and case files, extracting key information, identifying risks, and suggesting actionable insights.
-                    </p>
-                    <ul style="color: var(--color-text-muted); line-height: 1.8;">
-                        <li>• Contract clause extraction and analysis</li>
-                        <li>• Risk assessment and flagging</li>
-                        <li>• Compliance verification</li>
-                        <li>• Multi-format document support</li>
+                    <ul class="feature-list">
+                        <li>Automated contract review and risk assessment</li>
+                        <li>Key clause identification and extraction</li>
+                        <li>Compliance verification across regulations</li>
+                        <li>Comparative analysis with precedent cases</li>
+                        <li>Multi-language document processing</li>
                     </ul>
                 </div>
-
+                
                 <div class="feature-card reveal reveal-delay-1">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="m21 21-4.35-4.35"/>
-                            <circle cx="11" cy="11" r="3"/>
-                        </svg>
+                    <div class="feature-header">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Workflow Automation</h3>
+                        <p class="feature-subtitle">Streamline repetitive legal processes</p>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Automated Legal Research</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        AI-powered research agents scan through millions of legal documents, case laws, and precedents to provide comprehensive research results in minutes.
-                    </p>
-                    <ul style="color: var(--color-text-muted); line-height: 1.8;">
-                        <li>• Case law and precedent analysis</li>
-                        <li>• Regulatory compliance research</li>
-                        <li>• Citation and reference validation</li>
-                        <li>• Real-time legal updates</li>
+                    <ul class="feature-list">
+                        <li>Automated case intake and categorization</li>
+                        <li>Smart task assignment and prioritization</li>
+                        <li>Deadline tracking and alert systems</li>
+                        <li>Client communication automation</li>
+                        <li>Billing and time tracking integration</li>
                     </ul>
                 </div>
-
+                
                 <div class="feature-card reveal reveal-delay-2">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                    <div class="feature-header">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Legal Research Assistant</h3>
+                        <p class="feature-subtitle">Comprehensive legal research in minutes</p>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Case Strategy Optimization</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Strategic AI agents analyze case patterns, predict outcomes, and recommend optimal approaches based on historical data and legal precedents.
-                    </p>
-                    <ul style="color: var(--color-text-muted); line-height: 1.8;">
-                        <li>• Outcome prediction modeling</li>
-                        <li>• Strategy recommendation engine</li>
-                        <li>• Risk-benefit analysis</li>
-                        <li>• Timeline and resource planning</li>
+                    <ul class="feature-list">
+                        <li>Instant case law and statute searches</li>
+                        <li>Precedent analysis and recommendations</li>
+                        <li>Regulatory update monitoring</li>
+                        <li>Citation verification and formatting</li>
+                        <li>Research memo generation</li>
                     </ul>
                 </div>
-
+                
                 <div class="feature-card reveal reveal-delay-3">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/>
-                        </svg>
+                    <div class="feature-header">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Compliance & Risk Management</h3>
+                        <p class="feature-subtitle">Proactive risk identification and mitigation</p>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Workflow Automation</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Intelligent workflow agents automate routine tasks, scheduling, document generation, and client communication, freeing up time for high-value work.
-                    </p>
-                    <ul style="color: var(--color-text-muted); line-height: 1.8;">
-                        <li>• Automated document drafting</li>
-                        <li>• Client communication management</li>
-                        <li>• Deadline and calendar management</li>
-                        <li>• Task prioritization and routing</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card reveal reveal-delay-1">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                        </svg>
-                    </div>
-                    <h3 style="margin-bottom: 1rem;">Real-time Analytics</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Advanced analytics engines provide real-time insights into case progress, performance metrics, and predictive analytics for better decision-making.
-                    </p>
-                    <ul style="color: var(--color-text-muted); line-height: 1.8;">
-                        <li>• Performance dashboards</li>
-                        <li>• Predictive case analytics</li>
-                        <li>• Resource utilization tracking</li>
-                        <li>• ROI and cost analysis</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card reveal reveal-delay-2">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
-                    <h3 style="margin-bottom: 1rem;">Secure Collaboration</h3>
-                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
-                        Enterprise-grade security with encrypted collaboration tools, ensuring client confidentiality while enabling seamless team coordination.
-                    </p>
-                    <ul style="color: var(--color-text-muted); line-height: 1.8;">
-                        <li>• End-to-end encryption</li>
-                        <li>• Role-based access control</li>
-                        <li>• Audit trails and compliance</li>
-                        <li>• Multi-device synchronization</li>
+                    <ul class="feature-list">
+                        <li>Real-time compliance monitoring</li>
+                        <li>Risk scoring and assessment</li>
+                        <li>Regulatory change impact analysis</li>
+                        <li>Audit trail and documentation</li>
+                        <li>Policy enforcement automation</li>
                     </ul>
                 </div>
             </div>
@@ -547,555 +575,296 @@
     </section>
 
     <!-- Workflow Section -->
-    <section class="workflow-section">
+    <section class="workflow" id="workflow">
         <div class="container">
-            <div class="workflow-content">
-                <h2 class="section-title text-center">AI-Powered Legal Workflow</h2>
-                <p class="text-center" style="font-size: var(--font-size-lg); color: var(--color-text-muted); max-width: 700px; margin: 0 auto 3rem;">
-                    Experience a seamless integration of AI agents that transform your legal processes from intake to resolution.
-                </p>
-                
-                <div class="workflow-steps">
-                    <div class="workflow-step">
-                        <div class="step-number">1</div>
-                        <h4 style="margin-bottom: 0.5rem;">Case Intake</h4>
-                        <p style="color: var(--color-text-muted); font-size: var(--font-size-sm);">
-                            AI agents automatically process client intake, categorize cases, and extract key information
-                        </p>
-                    </div>
+            <h2 class="section-title text-center">How It Works</h2>
+            <p class="text-center" style="font-size: var(--font-size-lg); color: var(--color-text-muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Our agentic AI seamlessly integrates into your existing legal workflows, providing intelligent automation at every step.
+            </p>
+            
+            <div class="workflow-visual reveal">
+                <div class="workflow-content">
+                    <h3 style="font-size: var(--font-size-2xl); margin-bottom: 2rem;">AI-Powered Legal Workflow</h3>
                     
-                    <div class="workflow-step">
-                        <div class="step-number">2</div>
-                        <h4 style="margin-bottom: 0.5rem;">Research & Analysis</h4>
-                        <p style="color: var(--color-text-muted); font-size: var(--font-size-sm);">
-                            Intelligent research agents conduct comprehensive legal research and document analysis
-                        </p>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <h4 class="step-title">Document Ingestion</h4>
+                            <p class="step-description">AI agents automatically process and categorize incoming legal documents, contracts, and case files.</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <h4 class="step-title">Intelligent Analysis</h4>
+                            <p class="step-description">Advanced NLP algorithms extract key information, identify risks, and flag critical issues for review.</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <h4 class="step-title">Automated Processing</h4>
+                            <p class="step-description">Routine tasks are handled automatically while complex decisions are routed to appropriate legal experts.</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <h4 class="step-title">Quality Assurance</h4>
+                            <p class="step-description">Built-in verification systems ensure accuracy and compliance before final delivery to clients.</p>
+                        </div>
                     </div>
-                    
-                    <div class="workflow-step">
-                        <div class="step-number">3</div>
-                        <h4 style="margin-bottom: 0.5rem;">Strategy Development</h4>
-                        <p style="color: var(--color-text-muted); font-size: var(--font-size-sm);">
-                            AI recommends optimal strategies based on case analysis and historical precedents
-                        </p>
-                    </div>
-                    
-                    <div class="workflow-step">
-                        <div class="step-number">4</div>
-                        <h4 style="margin-bottom: 0.5rem;">Execution & Monitoring</h4>
-                        <p style="color: var(--color-text-muted); font-size: var(--font-size-sm);">
-                            Automated workflow management with real-time progress tracking and optimization
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="workflow-placeholder">
-                    <svg width="100" height="60" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)" style="margin-bottom: 1rem;">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                        <rect x="7" y="7" width="3" height="9"/>
-                        <rect x="14" y="7" width="3" height="5"/>
-                    </svg>
-                    <h3 style="color: var(--color-text-muted); margin-bottom: 1rem;">Interactive Workflow Visualization</h3>
-                    <p style="color: var(--color-text-muted);">
-                        Comprehensive workflow diagram showing AI agent interactions, decision points, and process optimization opportunities will be displayed here.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call-to-Action Section -->
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-size: var(--font-size-4xl); margin-bottom: 1rem;">
-                Ready to Transform Your Legal Practice<h2 style="font-size: var(--font-size-4xl); margin-bottom: 1rem;">
-                Ready to Transform Your Legal Practice?
-            </h2>
-            <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); max-width: 600px; margin: 0 auto 2rem;">
-                Join leading law firms who have already revolutionized their operations with our agentic AI solutions.
-            </p>
-            <div class="cta-buttons">
-                <a href="demo.html" class="btn btn-primary">Start Free Trial</a>
-                <a href='contact.html' class="btn btn-secondary">Schedule Consultation</a>
+            <div class="cta-content reveal">
+                <h2 class="cta-title">Ready to Transform Your Legal Practice?</h2>
+                <p class="cta-description">
+                    Join leading law firms already using NeuraTantra AI to deliver faster, more accurate legal services while reducing operational costs by up to 60%.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn btn-primary btn-large">Request Demo</a>
+                    <a href="#specialist" class="btn btn-secondary btn-large">Talk to Specialist</a>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <footer class="footer" id="footer-container">
-        <!-- Footer will be loaded here dynamically -->
-    </footer>
-
+    <!-- Footer placeholder -->
+    <div id="footer-container"></div>
 
     <script>
-        // CSS Variables (matching the external stylesheet)
-        document.documentElement.style.setProperty('--color-primary', '#6E54C2');
-        document.documentElement.style.setProperty('--color-secondary', '#4C90E6');
-        document.documentElement.style.setProperty('--color-accent-1', '#DC267F');
-        document.documentElement.style.setProperty('--color-accent-2', '#FF6B35');
-        document.documentElement.style.setProperty('--color-background', '#0A0A17');
-        document.documentElement.style.setProperty('--color-surface', '#161124');
-        document.documentElement.style.setProperty('--color-text', '#FFFFFF');
-        document.documentElement.style.setProperty('--color-text-muted', '#9CA3AF');
-        document.documentElement.style.setProperty('--border-radius-sm', '0.375rem');
-        document.documentElement.style.setProperty('--border-radius-md', '0.5rem');
-        document.documentElement.style.setProperty('--border-radius-lg', '0.75rem');
-        document.documentElement.style.setProperty('--border-radius-xl', '1rem');
-        document.documentElement.style.setProperty('--transition-fast', '0.15s ease');
-        document.documentElement.style.setProperty('--transition-medium', '0.3s ease');
-        document.documentElement.style.setProperty('--section-spacing', '5rem');
-        document.documentElement.style.setProperty('--font-size-sm', '0.875rem');
-        document.documentElement.style.setProperty('--font-size-lg', '1.125rem');
-        document.documentElement.style.setProperty('--font-size-xl', '1.25rem');
-        document.documentElement.style.setProperty('--font-size-4xl', '2.25rem');
-        document.documentElement.style.setProperty('--font-size-5xl', '3rem');
+        // Load navbar and footer dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    initializeNavbar();
+                })
+                .catch(error => {
+                    console.log('Failed to load navbar.html:', error);
+                });
 
-        // Navigation functionality
-        const menuToggle = document.getElementById('menuToggle');
-        const navContainer = document.getElementById('navContainer');
+            // Load footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(error => {
+                    console.log('Failed to load footer.html:', error);
+                });
 
-        menuToggle.addEventListener('click', () => {
-            navContainer.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            // Initialize animations and interactions
+            initializeAnimations();
+            initializeScrollEffects();
         });
 
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        function initializeNavbar() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navContainer = document.querySelector('.nav-container');
+            
+            if (menuToggle && navContainer) {
+                menuToggle.addEventListener('click', function() {
+                    navContainer.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
-        }, observerOptions);
+        }
 
-        // Apply reveal animations
-        document.addEventListener('DOMContentLoaded', () => {
+        function initializeAnimations() {
+            // Reveal animation on scroll
             const revealElements = document.querySelectorAll('.reveal');
             
-            revealElements.forEach((element, index) => {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        }
+
+        function initializeScrollEffects() {
+            // Header scroll effect
+            let lastScrollTop = 0;
+            const header = document.querySelector('.site-header');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
-                if (element.classList.contains('reveal-delay-1')) {
-                    element.style.transitionDelay = '0.2s';
-                } else if (element.classList.contains('reveal-delay-2')) {
-                    element.style.transitionDelay = '0.4s';
-                } else if (element.classList.contains('reveal-delay-3')) {
-                    element.style.transitionDelay = '0.6s';
+                if (scrollTop > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
                 
-                observer.observe(element);
+                // Hide/show header on scroll
+                if (scrollTop > lastScrollTop && scrollTop > 500) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
             });
+        }
+
+        // Newsletter form submission
+        document.addEventListener('submit', function(e) {
+            if (e.target.classList.contains('newsletter-form')) {
+                e.preventDefault();
+                const email = e.target.querySelector('.newsletter-input').value;
+                
+                if (email) {
+                    // Simulate form submission
+                    const button = e.target.querySelector('.newsletter-button');
+                    const originalText = button.textContent;
+                    
+                    button.textContent = 'Subscribing...';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Subscribed!';
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.disabled = false;
+                            e.target.querySelector('.newsletter-input').value = '';
+                        }, 2000);
+                    }, 1000);
+                }
+            }
         });
 
-        // Floating animation for legal icon
+        // Floating elements animation
+        function animateFloatingElements() {
+            const elements = document.querySelectorAll('.floating-element');
+            elements.forEach((element, index) => {
+                const duration = 3000 + (index * 1000);
+                const amplitude = 30 + (index * 10);
+                
+                setInterval(() => {
+                    element.style.transform = `translateY(${Math.sin(Date.now() / duration) * 20}px) rotate(${Math.sin(Date.now() / (duration * 2)) * 180}deg)`;
+                }, 50);
+            });
+        }
+
+        // Start floating animation
+        setTimeout(animateFloatingElements, 1000);
+
+        // Add CSS for reveal animations and header/footer styling dynamically
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes float-animation {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
-            }
-            
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 2rem;
-            }
-            
-            .site-header {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background: rgba(10, 10, 23, 0.95);
-                backdrop-filter: blur(10px);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                z-index: 1000;
-            }
-            
-            .navbar {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 1rem 2rem;
-            }
-            
-            .logo {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                font-weight: 700;
-                font-size: 1.25rem;
-            }
-            
-            .logo a {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                text-decoration: none;
-                color: inherit;
-            }
-            
-            .logo-icon {
-                width: 32px;
-                height: 32px;
-                background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .logo-svg {
-                width: 20px;
-                height: 20px;
-                color: white;
-            }
-            
-            .gradient-text {
-                background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-            }
-            
-            .accent {
-                color: var(--color-accent-1);
-            }
-            
-            .menu-toggle {
-                display: none;
-                flex-direction: column;
-                background: none;
-                border: none;
-                cursor: pointer;
-                gap: 4px;
-            }
-            
-            .hamburger-line {
-                width: 25px;
-                height: 3px;
-                background: var(--color-text);
-                transition: all var(--transition-medium);
-            }
-            
-            .nav-container {
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-            }
-            
-            .main-nav {
-                display: flex;
-            }
-            
-            .nav-links {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                gap: 2rem;
-            }
-            
-            .nav-links a {
-                color: var(--color-text);
-                text-decoration: none;
-                font-weight: 500;
-                transition: color var(--transition-fast);
-            }
-            
-            .nav-links a:hover {
-                color: var(--color-primary);
-            }
-            
-            .dropdown {
-                position: relative;
-            }
-            
-            .dropdown-arrow {
-                font-size: 0.75rem;
-                margin-left: 0.5rem;
-            }
-            
-            .dropdown-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background: rgba(22, 22, 45, 0.95);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: var(--border-radius-md);
-                padding: 0.5rem 0;
-                min-width: 180px;
+            .reveal {
                 opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: all var(--transition-medium);
-                list-style: none;
-                margin: 0;
+                transform: translateY(30px);
+                transition: all 0.6s ease-out;
             }
             
-            .dropdown:hover .dropdown-menu {
+            .reveal.revealed {
                 opacity: 1;
-                visibility: visible;
                 transform: translateY(0);
             }
             
-            .dropdown-menu a {
-                display: block;
-                padding: 0.5rem 1rem;
-                color: var(--color-text-muted);
-                transition: all var(--transition-fast);
+            .reveal-delay-1 {
+                transition-delay: 0.2s;
             }
             
-            .dropdown-menu a:hover {
-                color: var(--color-text);
-                background: rgba(255, 255, 255, 0.05);
+            .reveal-delay-2 {
+                transition-delay: 0.4s;
             }
             
-            .btn {
-                display: inline-flex;
-                align-items: center;
-                padding: 0.75rem 1.5rem;
-                border-radius: var(--border-radius-md);
-                text-decoration: none;
-                font-weight: 600;
-                transition: all var(--transition-medium);
-                border: none;
-                cursor: pointer;
-                font-size: 0.9rem;
+            .reveal-delay-3 {
+                transition-delay: 0.6s;
             }
             
-            .btn-primary {
-                background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-                color: white;
+            .site-header {
+                transition: all 0.3s ease;
             }
             
-            .btn-primary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 10px 25px rgba(110, 84, 194, 0.3);
+            .site-header.scrolled {
+                background: rgba(10, 10, 23, 0.95);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            .btn-secondary {
-                background: transparent;
-                color: var(--color-text);
-                border: 2px solid rgba(255, 255, 255, 0.2);
+            .site-header.hidden {
+                transform: translateY(-100%);
             }
             
-            .btn-secondary:hover {
-                background: rgba(255, 255, 255, 0.1);
-                border-color: rgba(255, 255, 255, 0.4);
+            .footer {
+                margin-top: 0;
             }
             
-            .section-title {
-                font-size: var(--font-size-4xl);
-                font-weight: 700;
-                margin-bottom: 2rem;
-                color: var(--color-text);
+            .footer-bottom {
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-top: 2rem;
+                margin-top: 3rem;
             }
             
-            .text-center {
-                text-align: center;
-            }
-            
-            .text-gradient {
-                background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-            }
-            
-            .cta-buttons {
+            .footer-copyright {
                 display: flex;
-                gap: 1rem;
-                justify-content: center;
+                justify-content: space-between;
+                align-items: center;
                 flex-wrap: wrap;
-                margin-top: 2rem;
+                gap: 1rem;
             }
             
-            body {
-                margin: 0;
-                padding: 0;
-                padding-top: 80px;
-                font-family: 'Inter', sans-serif;
-                background: var(--color-background);
-                color: var(--color-text);
-                line-height: 1.6;
+            .footer-legal {
+                display: flex;
+                gap: 2rem;
+            }
+            
+            .footer-legal a {
+                color: var(--color-text-muted);
+                text-decoration: none;
+                font-size: var(--font-size-sm);
+                transition: color var(--transition-fast);
+            }
+            
+            .footer-legal a:hover {
+                color: var(--color-primary);
             }
             
             @media (max-width: 768px) {
-                .menu-toggle {
-                    display: flex;
-                }
-                
-                .nav-container {
-                    position: fixed;
-                    top: 100%;
-                    left: 0;
-                    right: 0;
-                    background: rgba(10, 10, 23, 0.98);
-                    backdrop-filter: blur(20px);
+                .footer-copyright {
                     flex-direction: column;
-                    gap: 1rem;
-                    padding: 2rem;
-                    opacity: 0;
-                    visibility: hidden;
-                    transform: translateY(-20px);
-                    transition: all var(--transition-medium);
-                }
-                
-                .nav-container.active {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateY(0);
-                }
-                
-                .nav-links {
-                    flex-direction: column;
-                    gap: 1rem;
                     text-align: center;
                 }
                 
-                .cta-buttons {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                
-                .container {
-                    padding: 0 1rem;
-                }
-                
-                .section-title {
-                    font-size: 2rem;
+                .footer-legal {
+                    justify-content: center;
                 }
             }
         `;
         document.head.appendChild(style);
-        // External Navigation and Footer Loader
-// Add this code to your existing JavaScript section or create a separate JS file
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to load external HTML content
-    async function loadExternalHTML(url, targetSelector, insertMethod = 'replace') {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Failed to load ${url}: ${response.status}`);
-            }
-            const html = await response.text();
-            const targetElement = document.querySelector(targetSelector);
-
-            if (!targetElement) {
-                console.error(`Target element not found: ${targetSelector}`);
-                return;
-            }
-
-            if (insertMethod === 'prepend') {
-                targetElement.insertAdjacentHTML('afterbegin', html);
-            } else if (insertMethod === 'append') {
-                targetElement.insertAdjacentHTML('beforeend', html);
-            } else {
-                targetElement.innerHTML = html;
-            }
-
-            // Reinitialize navigation functionality after loading
-            if (url.includes('navbar')) {
-                initializeNavigation();
-            }
-
-        } catch (error) {
-            console.error(`Error loading external HTML from ${url}:`, error);
-        }
-    }
-
-    // Function to initialize navigation functionality
-    function initializeNavigation() {
-        const menuToggle = document.getElementById('menuToggle');
-        const navContainer = document.getElementById('navContainer');
-
-        if (menuToggle && navContainer) {
-            // Remove existing event listeners to prevent duplicates
-            menuToggle.removeEventListener('click', toggleMenu);
-
-            // Add event listener
-            menuToggle.addEventListener('click', toggleMenu);
-
-            function toggleMenu() {
-                navContainer.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            }
-        }
-    }
-
-    // Load navbar and footer
-    loadExternalHTML('navbar.html', 'body', 'prepend');
-    loadExternalHTML('footer.html', 'body', 'append');
-});
-
-// CSS Variables and existing functionality (keep this part)
-document.documentElement.style.setProperty('--color-primary', '#6E54C2');
-document.documentElement.style.setProperty('--color-secondary', '#4C90E6');
-document.documentElement.style.setProperty('--color-accent-1', '#DC267F');
-document.documentElement.style.setProperty('--color-accent-2', '#FF6B35');
-document.documentElement.style.setProperty('--color-background', '#0A0A17');
-document.documentElement.style.setProperty('--color-surface', '#161124');
-document.documentElement.style.setProperty('--color-text', '#FFFFFF');
-document.documentElement.style.setProperty('--color-text-muted', '#9CA3AF');
-document.documentElement.style.setProperty('--border-radius-sm', '0.375rem');
-document.documentElement.style.setProperty('--border-radius-md', '0.5rem');
-document.documentElement.style.setProperty('--border-radius-lg', '0.75rem');
-document.documentElement.style.setProperty('--border-radius-xl', '1rem');
-document.documentElement.style.setProperty('--transition-fast', '0.15s ease');
-document.documentElement.style.setProperty('--transition-medium', '0.3s ease');
-document.documentElement.style.setProperty('--section-spacing', '5rem');
-document.documentElement.style.setProperty('--font-size-sm', '0.875rem');
-document.documentElement.style.setProperty('--font-size-lg', '1.125rem');
-document.documentElement.style.setProperty('--font-size-xl', '1.25rem');
-document.documentElement.style.setProperty('--font-size-4xl', '2.25rem');
-document.documentElement.style.setProperty('--font-size-5xl', '3rem');
-
-// Animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Apply reveal animations
-document.addEventListener('DOMContentLoaded', () => {
-    const revealElements = document.querySelectorAll('.reveal');
-
-    revealElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-        if (element.classList.contains('reveal-delay-1')) {
-            element.style.transitionDelay = '0.2s';
-        } else if (element.classList.contains('reveal-delay-2')) {
-            element.style.transitionDelay = '0.4s';
-        } else if (element.classList.contains('reveal-delay-3')) {
-            element.style.transitionDelay = '0.6s';
-        }
-
-        observer.observe(element);
-    });
-});
     </script>
 </body>
 </html>
+
