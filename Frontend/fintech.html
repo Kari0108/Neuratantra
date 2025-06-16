@@ -950,7 +950,7 @@
     // Load external navbar and footer
     function loadExternalHTML() {
         // Load navbar
-        fetch('/navbar.html')
+        fetch('navbar.html')
             .then(response => {
                 if (!response.ok) throw new Error('Navbar fetch failed');
                 return response.text();
@@ -961,7 +961,7 @@
             .catch(error => console.error('Error loading navbar:', error));
 
         // Load footer
-        fetch('/footer.html')
+        fetch('footer.html')
             .then(response => {
                 if (!response.ok) throw new Error('Footer fetch failed');
                 return response.text();
