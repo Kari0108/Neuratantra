@@ -18,6 +18,9 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+            /* Add padding for overall section spacing, aligning with --section-spacing from stylu.css */
+            padding-top: var(--section-spacing);
+            padding-bottom: var(--section-spacing);
         }
 
         .hero-background {
@@ -38,10 +41,11 @@
         }
 
         .hero-content {
-            text-align: center;
+            text-align: center; /* Ensure text and buttons are centrally aligned */
             max-width: 800px;
             z-index: 2;
             position: relative;
+            margin: 0 auto; /* Center the block itself */
         }
 
         .hero-title {
@@ -399,7 +403,9 @@
         /* CTA Section */
         .cta-section {
             text-align: center;
-            padding: 6rem 0;
+            /* Use --section-spacing for consistent padding */
+            padding-top: var(--section-spacing);
+            padding-bottom: var(--section-spacing);
             background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
             position: relative;
         }
@@ -457,6 +463,14 @@
             .feature-tour {
                 grid-template-columns: 1fr;
             }
+
+            /* Adjust section spacing for smaller screens */
+            .hero-section,
+            .section,
+            .cta-section {
+                padding-top: var(--section-spacing);
+                padding-bottom: var(--section-spacing);
+            }
         }
 
         /* Loading Animation */
@@ -472,6 +486,16 @@
 
         @keyframes spin {
             to { transform: rotate(360deg); }
+        }
+
+        /* Ensuring consistent section padding from stylu.css */
+        .section {
+            padding-top: var(--section-spacing);
+            padding-bottom: var(--section-spacing);
+        }
+
+        .section-alt {
+            background: var(--color-bg-alt); /* Apply alt background */
         }
     </style>
 </head>
@@ -738,13 +762,13 @@
     <script>
         // Load navbar and footer
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/navbar.html')
+            fetch('navbar.html')
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('navbar-container').innerHTML = html;
                 });
 
-            fetch('/footer.html')
+            fetch('footer.html')
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('footer-container').innerHTML = html;
@@ -821,7 +845,8 @@
         function bookPersonalDemo() {
             // In a real implementation, this would open a calendar widget
             // For demo purposes, we'll simulate the action
-            alert('Opening calendar to schedule your personal demo...\n\nIn a real implementation, this would integrate with Calendly, HubSpot, or similar booking platform.');
+            // Replaced alert with a console log or custom modal
+            console.log('Opening calendar to schedule your personal demo...');
             
             // Example of what the actual implementation might look like:
             // window.open('https://calendly.com/neuratantra/demo', '_blank');
