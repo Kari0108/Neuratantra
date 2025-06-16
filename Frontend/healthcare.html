@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agentic AI for Healthcare - NeuraTantra</title>
-  <link rel="stylesheet" href="/stylu.css">
+  <!-- Correct stylesheet link -->
+  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
@@ -256,7 +257,7 @@ body {
     background: #0a0a17;
     color: var(--color-text);
     font-family: 'Inter', sans-serif;
-    margin: 0;
+    margin: 0; /* Set body margin to 0 */
     padding: 0;
 }
 
@@ -333,6 +334,7 @@ body {
 .hero-content {
     text-align: center; /* Changed from left to center */
     max-width: 800px;
+    margin: 0 auto; /* Center the hero content block itself */
 }
 
 .hero-content h1 {
@@ -480,7 +482,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body style="margin:0;">
 <!-- Navbar will be included here -->
 <div id="navbar-placeholder"></div>
 
@@ -907,17 +909,40 @@ body {
   });
 
   // Load navbar and footer
-  fetch('/components/navbar.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-    });
+  async function loadComponent(url, targetId) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) { // Check if the response was successful (e.g., 200 OK)
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const html = await response.text();
+      document.getElementById(targetId).innerHTML = html;
 
-  fetch('/components/footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    });
+      // Execute scripts within the loaded content
+      const scripts = document.getElementById(targetId).querySelectorAll('script');
+      scripts.forEach(script => {
+        const newScript = document.createElement('script');
+        if (script.src) {
+          newScript.src = script.src;
+        } else {
+          newScript.textContent = script.textContent;
+        }
+        // Append to body to ensure scripts loaded with innerHTML execute
+        document.body.appendChild(newScript);
+        // Remove the original script tag to prevent double execution if the same component is loaded multiple times
+        script.remove();
+      });
+
+    } catch (error) {
+      console.error(`Error loading ${url}:`, error);
+      // No fallback UI will be rendered, just log the error.
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    loadComponent('/navbar.html', 'navbar-placeholder');
+    loadComponent('/footer.html', 'footer-placeholder');
+  });
 </script>
 
 </body>
