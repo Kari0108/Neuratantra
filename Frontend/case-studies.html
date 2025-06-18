@@ -11,14 +11,15 @@
     <style>
         /* Adding basic CSS variables and styles for demo */
         :root {
-            --color-bg: #0a0a0a;
-            --color-bg-alt: #111111;
-            --color-text: #ffffff;
-            --color-text-muted: #888888;
+            --color-bg: #0a0a17;
+            --color-bg-alt: #111124;
+            --color-text: #f2f2f7;
+            --color-text-muted: #a0a0bc;
             --color-primary: #6e54c2;
             --color-secondary: #4c90e6;
             --color-accent-1: #e660a8;
             --color-accent-2: #2ecbaf;
+            --color-border: rgba(255, 255, 255, 0.1);
             --font-size-xs: 0.75rem;
             --font-size-sm: 0.875rem;
             --font-size-lg: 1.125rem;
@@ -62,7 +63,7 @@
 
         .card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--color-border);
             border-radius: var(--border-radius-lg);
             padding: 2rem;
             transition: all var(--transition-fast);
@@ -270,9 +271,8 @@
                     <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); margin-bottom: 2.5rem; line-height: 1.6;">
                         Join the growing list of organizations that have transformed their operations with our AI solutions. Let's discuss how we can create a custom solution for your unique challenges.
                     </p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">Start Your Project</a>
-                        <a href="#consultation" class="btn btn-secondary">Free Consultation</a>
+                    <div class="cta-buttons" style="display: flex; justify-content: center; margin-top: 1rem;">
+                       <a href="contact.html" class="btn btn-primary">Start Your Project</a>
                     </div>
                 </div>
             </div>
@@ -365,31 +365,6 @@
             }
         }
 
-        // Method 3: Using jQuery if available (uncomment if you have jQuery)
-        /*
-        function loadWithJQuery(filePath, elementId) {
-            if (typeof $ !== 'undefined') {
-                $(document).ready(function() {
-                    $(`#${elementId}`).load(filePath, function(response, status, xhr) {
-                        if (status === "error") {
-                            console.error(`jQuery load error: ${xhr.status} ${xhr.statusText}`);
-                            showErrorMessage(elementId, filePath);
-                        } else {
-                            console.log(`Successfully loaded ${filePath} via jQuery`);
-                        }
-                    });
-                });
-            }
-        }
-        */
-
-        // Method 4: Server-side includes (PHP example - uncomment if using PHP)
-        /*
-        // For PHP, you would use:
-        // <?php include 'navbar.html'; ?>
-        // <?php include 'footer.html'; ?>
-        */
-
         // Error display function
         function showErrorMessage(elementId, filePath) {
             const element = document.getElementById(elementId);
@@ -400,45 +375,6 @@
                     Please ensure the file exists in the same directory as this HTML file.<br>
                     <small>Tried paths: ${filePath}, ./${filePath}, ${fileName}</small>
                 </div>
-            `;
-        }
-
-        // Function to create fallback content
-        function createFallbackNavbar() {
-            return `
-                <nav style="background: rgba(0,0,0,0.9); padding: 1rem 0; position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px);">
-                    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-                        <div class="logo" style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary);">
-                            NeuraTantra AI
-                        </div>
-                        <div class="nav-links" style="display: flex; gap: 2rem;">
-                            <a href="#" style="color: var(--color-text); text-decoration: none;">Home</a>
-                            <a href="#" style="color: var(--color-text); text-decoration: none;">Services</a>
-                            <a href="#" style="color: var(--color-text); text-decoration: none;">Case Studies</a>
-                            <a href="#" style="color: var(--color-text); text-decoration: none;">Contact</a>
-                        </div>
-                    </div>
-                </nav>
-            `;
-        }
-
-        function createFallbackFooter() {
-            return `
-                <footer style="background: var(--color-bg-alt); padding: 3rem 0; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <div class="container text-center">
-                        <div style="margin-bottom: 2rem;">
-                            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 1rem;">
-                                NeuraTantra AI
-                            </div>
-                            <p style="color: var(--color-text-muted);">
-                                Transforming businesses through intelligent AI solutions
-                            </p>
-                        </div>
-                        <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: var(--color-text-muted);">
-                            © 2024 NeuraTantra AI. All rights reserved.
-                        </div>
-                    </div>
-                </footer>
             `;
         }
 
