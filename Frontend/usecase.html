@@ -420,61 +420,7 @@
 </head>
 <body>
       <!-- Navbar -->
-    <header class="site-header" id="header">
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="../index.html">
-                        <div class="logo-icon">
-                            <svg viewBox="0 0 40 40" class="logo-svg">
-                                <circle cx="20" cy="20" r="18" class="logo-circle" fill="none" stroke="currentColor" stroke-width="1"/>
-                                <circle cx="20" cy="20" r="3" fill="currentColor"/>
-                                <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                                <circle cx="28" cy="12" r="2" fill="currentColor"/>
-                                <circle cx="12" cy="28" r="2" fill="currentColor"/>
-                                <circle cx="28" cy="28" r="2" fill="currentColor"/>
-                                <line x1="20" y1="20" x2="12" y2="12" stroke="currentColor" stroke-width="1"/>
-                                <line x1="20" y1="20" x2="28" y2="12" stroke="currentColor" stroke-width="1"/>
-                                <line x1="20" y1="20" x2="12" y2="28" stroke="currentColor" stroke-width="1"/>
-                                <line x1="20" y1="20" x2="28" y2="28" stroke="currentColor" stroke-width="1"/>
-                            </svg>
-                        </div>
-                        <span>NeuraTantra<span class="accent">AI</span></span>
-                    </a>
-                </div>
-
-                <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </div>
-
-                <div class="nav-container" id="navContainer">
-                    <nav class="main-nav">
-                        <ul class="nav-links">
-                            <li><a href="../index.html#hero">About</a></li>
-                            <li class="dropdown">
-                                <a href="../index.html#products" class="dropdown-toggle">Products <span class="dropdown-arrow">▼</span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" class="active">AgentOS Lite</a></li>
-                                    <li><a href="../products/agent-builder.html">Agent Builder</a></li>
-                                    <li><a href="../products/consulting.html">Consulting</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="../index.html#vision">Vision</a></li>
-                            <li><a href="../index.html#market">Market</a></li>
-                            <li><a href="../index.html#team">Team</a></li>
-                            <li><a href="../index.html#contact">Contact</a></li>
-                        </ul>
-                    </nav>
-
-                    <div class="nav-cta">
-                        <a href="#trial" class="btn btn-primary">Free Trial</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+   <div id="navbar-container"></div>
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -710,161 +656,109 @@
     </section>
 
    <!-- Footer will be loaded here -->
-     <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>NeuraTantra AI</h2>
-                <p>Building the Fabric of Future Intelligence</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-links-group">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/products/">Products</a></li>
-                        <li><a href="/solutions/">Solutions</a></li>
-                        <li><a href="/contact/">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links-group">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="/resources/blog/">Blog</a></li>
-                        <li><a href="/resources/docs/">Documentation</a></li>
-                        <li><a href="/resources/case-studies/">Case Studies</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links-group">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-                        <li><a href="/terms/">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-social">
-                <h3>Connect With Us</h3>
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <svg viewBox="0 0 24 24"><path d="..."/></svg>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <svg viewBox="0 0 24 24"><path d="..."/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 NeuraTantra AI. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
+   <div id="footer-container"></div>
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
 
-        // Load navbar and footer
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load navbar
-            fetch('/navbar.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('navbar-placeholder').innerHTML = html;
-                    
-                    // Initialize navbar functionality after loading
-                    const menuToggle = document.querySelector('.menu-toggle');
-                    const navContainer = document.querySelector('.nav-container');
-                    
-                    if (menuToggle && navContainer) {
-                        menuToggle.addEventListener('click', function() {
-                            navContainer.classList.toggle('active');
-                            menuToggle.classList.toggle('active');
-                        });
-                    }
-
-                    // Handle header scroll effect
-                    const header = document.querySelector('.site-header');
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 50) {
-                            header.classList.add('scrolled');
-                        } else {
-                            header.classList.remove('scrolled');
-                        }
+    // Load navbar and footer
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load navbar
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+                
+                // Initialize navbar functionality after loading
+                const menuToggle = document.querySelector('.menu-toggle');
+                const navContainer = document.querySelector('.nav-container');
+                
+                if (menuToggle && navContainer) {
+                    menuToggle.addEventListener('click', function() {
+                        navContainer.classList.toggle('active');
+                        menuToggle.classList.toggle('active');
                     });
-                })
-                .catch(err => console.error('Error loading navbar:', err));
-
-            // Load footer
-            fetch('/footer.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('footer-placeholder').innerHTML = html;
-                })
-                .catch(err => console.error('Error loading footer:', err));
-        });
-
-        // CTA Functions
-        function startTrial() {
-            // In real implementation, this would redirect to signup page
-            window.location.href = '/signup?use_case=lead_generation';
-        }
-
-        function contactTeam() {
-            // In real implementation, this would open contact form or redirect
-            window.location.href = '/contact?inquiry=lead_generation';
-        }
-
-        function scheduleDemo() {
-            // In real implementation, this would open calendar booking
-            window.location.href = '/demo?product=lead_generation';
-        }
-
-        // Add interactive hover effects
-        const solutionSteps = document.querySelectorAll('.solution-step');
-        solutionSteps.forEach((step, index) => {
-            step.addEventListener('mouseenter', () => {
-                step.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            step.addEventListener('mouseleave', () => {
-                step.style.transform = 'translateY(-10px) scale(1)';
-            });
-        });
-
-        // Dynamic content switching (for demo purposes)
-        function switchUseCase(useCase) {
-            const content = {
-                'lead_generation': {
-                    badge: 'Lead Generation Solution',
-                    title: 'Lead Generation with Agentic AI',
-                    subtitle: 'Transform your sales pipeline with intelligent lead qualification, personalized outreach, and automated follow-ups that convert prospects into customers at scale.'
-                },
-                'summarization': {
-                    badge: 'Document Summarization',
-                    title: 'Document Summarization with Agentic AI',
-                    subtitle: 'Process vast amounts of documents, reports, and content with AI agents that extract key insights, generate summaries, and create actionable intelligence.'
-                },
-                'workflow_automation': {
-                    badge: 'Workflow Automation',
-                    title: 'Workflow Automation with Agentic AI',
-                    subtitle: 'Streamline complex business processes with intelligent automation that adapts, learns, and optimizes workflows for maximum efficiency.'
                 }
-            };
 
-            if (content[useCase]) {
-                document.querySelector('.use-case-badge').textContent = content[useCase].badge;
-                document.querySelector('.hero-title').innerHTML = content[useCase].title.replace(/(\w+)\s+with/, '<span class="text-gradient">$1</span> with');
-                document.querySelector('.hero-subtitle').textContent = content[useCase].subtitle;
+                // Handle header scroll effect
+                const header = document.querySelector('.site-header');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            })
+            .catch(err => console.error('Error loading navbar:', err));
+
+        // Load footer
+        fetch('/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error('Error loading footer:', err));
+    });
+
+    // CTA Functions
+    function startTrial() {
+        window.location.href = '/signup?use_case=lead_generation';
+    }
+
+    function contactTeam() {
+        window.location.href = '/contact?inquiry=lead_generation';
+    }
+
+    function scheduleDemo() {
+        window.location.href = '/demo?product=lead_generation';
+    }
+
+    // Add interactive hover effects
+    const solutionSteps = document.querySelectorAll('.solution-step');
+    solutionSteps.forEach((step) => {
+        step.addEventListener('mouseenter', () => {
+            step.style.transform = 'translateY(-15px) scale(1.02)';
+        });
+        
+        step.addEventListener('mouseleave', () => {
+            step.style.transform = 'translateY(-10px) scale(1)';
+        });
+    });
+
+    // Dynamic content switching (for demo purposes)
+    function switchUseCase(useCase) {
+        const content = {
+            'lead_generation': {
+                badge: 'Lead Generation Solution',
+                title: 'Lead Generation with Agentic AI',
+                subtitle: 'Transform your sales pipeline with intelligent lead qualification, personalized outreach, and automated follow-ups that convert prospects into customers at scale.'
+            },
+            'summarization': {
+                badge: 'Document Summarization',
+                title: 'Document Summarization with Agentic AI',
+                subtitle: 'Process vast amounts of documents, reports, and content with AI agents that extract key insights, generate summaries, and create actionable intelligence.'
+            },
+            'workflow_automation': {
+                badge: 'Workflow Automation',
+                title: 'Workflow Automation with Agentic AI',
+                subtitle: 'Streamline complex business processes with intelligent automation that adapts, learns, and optimizes workflows for maximum efficiency.'
             }
+        };
+
+        if (content[useCase]) {
+            document.querySelector('.use-case-badge').textContent = content[useCase].badge;
+            document.querySelector('.hero-title').innerHTML = content[useCase].title.replace(/(\w+)\s+with/, '<span class="text-gradient">$1</span> with');
+            document.querySelector('.hero-subtitle').textContent = content[useCase].subtitle;
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
