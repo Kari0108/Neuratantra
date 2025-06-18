@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment & Support - NeuraTantra AI</title>
+    <link rel="stylesheet" href="stylu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables - Add these if not already in stylu.css */
+        :root {
+            --color-bg: #0f0f23;
+            --color-bg-alt: #1a1a2e;
+            --color-text: #ffffff;
+            --color-text-muted: #a0a0a0;
+            --color-primary: #6e54c2;
+            --color-secondary: #4c90e6;
+            --color-accent-1: #e660a8;
+            --color-accent-2: #2ecbaf;
+            --header-height: 80px;
+            --section-spacing: 5rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+        }
+
+        /* General styling for sections and containers */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .section-title {
+            font-size: var(--font-size-3xl);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            color: var(--color-text); /* Ensure title color is consistent */
+            text-align: center; /* Center section titles */
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px; /* Shorter line for section titles */
+            height: 3px;
+            margin: 0.5rem auto 0; /* Center the line */
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 3px;
+        }
+
+        /* Text Gradients */
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .accent-gradient {
+            background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hero Section Specific Styles */
+        .hero-section {
+            padding: 12rem 0 8rem;
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active,
+        .reveal.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button styles (if any are added later) */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: var(--font-size-base);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(110, 84, 194, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Card styles */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-md);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(110, 84, 194, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Deployment Overview Section */
+        .deployment-overview .section-content {
+            max-width: 900px;
+            margin: 0 auto; /* Center the content */
+            text-align: center; /* Center text within this section */
+        }
+
+        .deployment-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* System Integration Section */
+        .system-integration .section-content {
+            max-width: 1000px; /* Adjust max width for this section content */
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .integration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+            text-align: left; /* Align text within grid cells to left */
+        }
+
+        .integration-systems .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .system-item {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--color-border);
+        }
+
+        /* Monitoring & Maintenance Section */
+        .monitoring-maintenance .section-content {
+            max-width: 1000px; /* Adjust max width for this section content */
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .monitoring-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .monitoring-card {
+            padding: 2.5rem;
+            text-align: left; /* Align card content to left */
+        }
+
+        .monitoring-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .monitoring-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        /* Technical Support Coverage */
+        .technical-support .section-content {
+            max-width: 1000px; /* Adjust max width for this section content */
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .support-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .support-feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .support-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .support-channels {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius-md);
+            padding: 3rem;
+            text-align: center; /* Center the content within support-channels */
+        }
+
+        .support-channels .channel-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .support-channels .channel-item div { /* Icon background */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: var(--font-size-4xl) !important;
+            }
+            .hero-subtitle {
+                font-size: var(--font-size-lg) !important;
+            }
+            .section-title {
+                font-size: var(--font-size-2xl) !important;
+            }
+            .integration-grid {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
+                gap: 2rem;
+                text-align: center; /* Center the text for mobile */
+            }
+            .integration-grid .integration-content, .integration-grid .integration-systems {
+                text-align: center;
+            }
+            .integration-systems .systems-grid {
+                grid-template-columns: 1fr; /* Stack system items on mobile */
+            }
+            .support-channels .channel-item {
+                flex-direction: column; /* Stack icon and text */
+                text-align: center;
+                gap: 0.5rem;
+            }
+            .support-channels .channel-item div {
+                margin: 0 auto; /* Center the icon */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .hero-section {
+                padding: 8rem 0 6rem;
+            }
+            .hero-title {
+                font-size: var(--font-size-3xl) !important;
+            }
+            .hero-subtitle {
+                font-size: var(--font-size-md) !important;
+            }
+            .deployment-features, .monitoring-features, .support-features {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+            .feature-card, .monitoring-card, .support-feature {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --section-spacing: 3rem;
+            }
+            .hero-section {
+                padding: 6rem 0 4rem;
+            }
+            .hero-title {
+                font-size: var(--font-size-2xl) !important;
+            }
+            .hero-subtitle {
+                font-size: var(--font-size-sm) !important;
+            }
+            .section-title {
+                font-size: var(--font-size-xl) !important;
+            }
+            .support-channels {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center reveal">
+                <h1 class="hero-title">
+                    Deployment & <span class="text-gradient">Support</span>
+                </h1>
+                <p class="hero-subtitle">
+                    End-to-end deployment services with ongoing support to ensure your AI solutions perform optimally in production.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Background decoration -->
+        <div style="position: absolute; top: 20%; right: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(110, 84, 194, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: -1;"></div>
+        <div style="position: absolute; bottom: 20%; left: -5%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(76, 144, 230, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: -1;"></div>
+    </section>
+
+    <!-- Production Deployment Overview -->
+    <section class="deployment-overview" style="padding: var(--section-spacing) 0; background: var(--color-bg);">
+        <div class="container">
+            <div class="section-content reveal">
+                <h2 class="section-title">Seamless AI Deployment</h2>
+                <div class="deployment-content">
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); line-height: 1.7; margin-bottom: 2rem;">
+                        NeuraTantra ensures smooth migration from development to production environments with minimal downtime and maximum reliability. Our deployment specialists handle every aspect of the transition, from infrastructure provisioning to performance optimization.
+                    </p>
+                    
+                    <div class="deployment-features">
+                        <div class="feature-card card reveal-delay-1">
+                            <div class="feature-icon" style="background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: var(--font-size-xl); margin-bottom: 1rem;">Infrastructure Setup</h3>
+                            <p style="color: var(--color-text-muted); line-height: 1.6;">Scalable cloud architecture and on-premises deployment configurations tailored to your requirements.</p>
+                        </div>
+                        
+                        <div class="feature-card card reveal-delay-2">
+                            <div class="feature-icon" style="background: linear-gradient(45deg, var(--color-secondary), var(--color-accent-1));">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="white" stroke-width="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21" stroke="white" stroke-width="2"/>
+                                    <line x1="12" y1="17" x2="12" y2="21" stroke="white" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: var(--font-size-xl); margin-bottom: 1rem;">Containerization</h3>
+                            <p style="color: var(--color-text-muted); line-height: 1.6;">Docker and Kubernetes orchestration for consistent, portable, and scalable AI model deployment.</p>
+                        </div>
+                        
+                        <div class="feature-card card reveal-delay-3">
+                            <div class="feature-icon" style="background: linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                                    <polyline points="12,6 12,12 16,14" stroke="white" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: var(--font-size-xl); margin-bottom: 1rem;">CI/CD Compatibility</h3>
+                            <p style="color: var(--color-text-muted); line-height: 1.6;">Seamless integration with existing DevOps pipelines for automated testing and deployment workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Integration -->
+    <section class="system-integration" style="padding: var(--section-spacing) 0; background: var(--color-bg-alt);">
+        <div class="container">
+            <div class="section-content reveal">
+                <h2 class="section-title">System Integration</h2>
+                <div class="integration-grid">
+                    <div class="integration-content">
+                        <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); line-height: 1.7; margin-bottom: 2rem;">
+                            Our integration specialists ensure your AI solutions work seamlessly with existing enterprise systems, databases, and third-party applications. We handle complex API integrations and data pipeline configurations to maximize interoperability.
+                        </p>
+                        <p style="color: var(--color-text-muted); line-height: 1.6;">
+                            Whether you're integrating with legacy systems or modern cloud platforms, we ensure secure, efficient, and scalable connections that support your business objectives.
+                        </p>
+                    </div>
+                    
+                    <div class="integration-systems">
+                        <h3 style="font-size: var(--font-size-xl); margin-bottom: 2rem; color: var(--color-text);">Supported Systems & Standards</h3>
+                        <div class="systems-grid">
+                            <div class="system-item">
+                                <strong style="color: var(--color-secondary);">REST APIs</strong>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 0.5rem;">Standard HTTP-based integration</p>
+                            </div>
+                            <div class="system-item">
+                                <strong style="color: var(--color-secondary);">GraphQL</strong>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 0.5rem;">Flexible query language support</p>
+                            </div>
+                            <div class="system-item">
+                                <strong style="color: var(--color-secondary);">WebSockets</strong>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 0.5rem;">Real-time communication protocols</p>
+                            </div>
+                            <div class="system-item">
+                                <strong style="color: var(--color-secondary);">Message Queues</strong>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 0.5rem;">Asynchronous processing systems</p>
+                            </div>
+                            <div class="system-item">
+                                <strong style="color: var(--color-secondary);">Database Connectors</strong>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 0.5rem;">SQL & NoSQL database integration</p>
+                            </div>
+                            <div class="system-item">
+                                <strong style="color: var(--color-secondary);">Enterprise APIs</strong>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin-top: 0.5rem;">SAP, Salesforce, and custom systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monitoring & Maintenance -->
+    <section class="monitoring-maintenance" style="padding: var(--section-spacing) 0; background: var(--color-bg);">
+        <div class="container">
+            <div class="section-content reveal">
+                <h2 class="section-title">Ongoing Performance Monitoring</h2>
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); line-height: 1.7; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Continuous monitoring and proactive maintenance ensure your AI systems operate at peak performance. Our comprehensive monitoring suite provides real-time insights and automated responses to potential issues.
+                </p>
+                
+                <div class="monitoring-features">
+                    <div class="monitoring-card card reveal-delay-1">
+                        <div class="monitoring-header">
+                            <div class="monitoring-icon" style="background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3V21H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 12L12 7L16 11L21 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: var(--font-size-xl); margin: 0;">Real-time Metrics Tracking</h3>
+                        </div>
+                        <p style="color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Monitor model performance, API response times, resource utilization, and business metrics with customizable dashboards and automated reporting.
+                        </p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted);">• Model accuracy and drift detection</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted);">• Infrastructure performance metrics</li>
+                            <li style="padding: 0.5rem 0; color: var(--color-text-muted);">• Custom business KPI tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="monitoring-card card reveal-delay-2">
+                        <div class="monitoring-header">
+                            <div class="monitoring-icon" style="background: linear-gradient(45deg, var(--color-secondary), var(--color-accent-1));">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.29 3.86L1.82 18A2 2 0 0 0 3.5 21H20.5A2 2 0 0 0 22.18 18L13.71 3.86A2 2 0 0 0 10.29 3.86Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="12" y1="9" x2="12" y2="13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: var(--font-size-xl); margin: 0;">Logging & Alert Systems</h3>
+                        </div>
+                        <p style="color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Comprehensive logging infrastructure with intelligent alerting mechanisms that notify stakeholders of critical issues before they impact users.
+                        </p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted);">• Centralized log aggregation</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted);">• Smart anomaly detection</li>
+                            <li style="padding: 0.5rem 0; color: var(--color-text-muted);">• Multi-channel alert delivery</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="monitoring-card card reveal-delay-3">
+                        <div class="monitoring-header">
+                            <div class="monitoring-icon" style="background: linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.7 6.3A1 1 0 0 0 13 5H5A2 2 0 0 0 3 7V19A2 2 0 0 0 5 21H17A2 2 0 0 0 19 19V11A1 1 0 0 0 17.7 9.7L14.7 6.7Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 2V8H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 13V17L18 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 13V17L10 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: var(--font-size-xl); margin: 0;">Regular Maintenance & Upgrades</h3>
+                        </div>
+                        <p style="color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+                            Scheduled maintenance windows, security patches, and version upgrades ensure your AI systems remain secure, compliant, and optimized.
+                        </p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted);">• Automated security patching</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text-muted);">• Model retraining and updates</li>
+                            <li style="padding: 0.5rem 0; color: var(--color-text-muted);">• Infrastructure optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Support Coverage -->
+    <section class="technical-support" style="padding: var(--section-spacing) 0; background: var(--color-bg-alt);">
+        <div class="container">
+            <div class="section-content reveal">
+                <div class="support-header text-center" style="margin-bottom: 4rem;">
+                    <h2 class="section-title">
+                        <span class="accent-gradient">24/7 Technical Support</span>
+                    </h2>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                        Our dedicated support team provides round-the-clock assistance to ensure your AI solutions maintain optimal performance and availability. With comprehensive SLAs and multilingual support, we're here when you need us most.
+                    </p>
+                </div>
+                
+                <div class="support-features">
+                    <div class="support-feature card reveal-delay-1">
+                        <div class="support-icon" style="background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92V19A2 2 0 0 1 20.18 21H19.86C12.7 20.14 7.14 14.58 6.28 7.42H6A2 2 0 0 1 4 5.18V2.82A2 2 0 0 1 6 1H9.08A2 2 0 0 1 11 2.82L11.3 5.15A2 2 0 0 1 10.43 7.17L8.5 8A13.39 13.39 0 0 0 16 15.5L16.83 13.57A2 2 0 0 1 18.85 12.7L21.18 13A2 2 0 0 1 22 16.92Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: var(--font-size-xl); margin-bottom: 1rem;">Service Level Agreements</h3>
+                        <p style="color: var(--color-text-muted); line-height: 1.6;">Guaranteed response times with tiered support levels: Critical (15 min), High (2 hours), Medium (8 hours), Low (24 hours).</p>
+                    </div>
+                    
+                    <div class="support-feature card reveal-delay-2">
+                        <div class="support-icon" style="background: linear-gradient(45deg, var(--color-secondary), var(--color-accent-1));">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22S20 16 20 10V3L12 1L4 3V10C4 16 12 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: var(--font-size-xl); margin-bottom: 1rem;">Escalation Protocols</h3>
+                        <p style="color: var(--color-text-muted); line-height: 1.6;">Clear escalation pathways ensure complex issues reach senior engineers and specialists quickly for rapid resolution.</p>
+                    </div>
+                    
+                    <div class="support-feature card reveal-delay-3">
+                        <div class="support-icon" style="background: linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                                <path d="M8 14S9.5 16 12 16S16 14 16 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 style="font-size: var(--font-size-xl); margin-bottom: 1rem;">Multilingual Support</h3>
+                        <p style="color: var(--color-text-muted); line-height: 1.6;">Support available in multiple languages with native speakers and cultural understanding for global deployments.</p>
+                    </div>
+                </div>
+                
+                <div class="support-channels" style="background: rgba(255, 255, 255, 0.02); border-radius: var(--border-radius-md); padding: 3rem; text-align: center;">
+                    <h3 style="font-size: var(--font-size-2xl); margin-bottom: 2rem; color: var(--color-text);">Support Channels</h3>
+                    <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                        <div class="channel-item">
+                            <div style="background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="22,6 12,13 2,6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color: var(--color-text); font-weight: 500;">Email Support</span>
+                        </div>
+                        <div class="channel-item">
+                            <div style="background: linear-gradient(45deg, var(--color-secondary), var(--color-accent-1));">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15A2 2 0 0 1 19 17H7L3 21V5A2 2 0 0 1 5 3H19A2 2 0 0 1 21 5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color: var(--color-text); font-weight: 500;">Live Chat</span>
+                        </div>
+                        <div class="channel-item">
+                            <div style="background: linear-gradient(45deg, var(--color-accent-1), var(--color-accent-2));">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.95M1 5H4M1 12H4M1 19H4M12 12V16.08A2 2 0 0 1 10.92 18L7 22H4V18L8.08 15.08A2 2 0 0 1 9 14V12H12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span style="color: var(--color-text); font-weight: 500;">Phone Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" style="padding: var(--section-spacing) 0; background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%); text-align: center;">
+        <div class="container reveal">
+            <h2 style="font-size: var(--font-size-4xl); font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                Ready to Deploy Your AI Solution?
+            </h2>
+            <p style="font-size: var(--font-size-lg); color: var(--color-text-muted); max-width: 600px; margin: 0 auto 2.5rem;">
+                Let our experts handle the complexities of deployment and provide the ongoing support you need to succeed.
+            </p>
+            <!-- Removed the cta-buttons div completely -->
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Function to inject HTML from a file
+        async function injectHTML(filePath, elementId) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.text();
+                document.getElementById(elementId).innerHTML = data;
+            } catch (error) {
+                console.error(`Error loading ${filePath}:`, error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar and footer
+            injectHTML('navbar.html', 'navbar-placeholder');
+            injectHTML('footer.html', 'footer-placeholder');
+
+            // Navbar scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const navContainer = document.getElementById('nav-container');
+            if (menuToggle && navContainer) {
+                menuToggle.addEventListener('click', () => {
+                    menuToggle.classList.toggle('active');
+                    navContainer.classList.toggle('active');
+                });
+
+                // Close menu when a link is clicked (for single-page navigation)
+                navContainer.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navContainer.classList.contains('active')) {
+                            menuToggle.classList.remove('active');
+                            navContainer.classList.remove('active');
+                        }
+                    });
+                });
+            }
+
+            // Dropdown menu functionality (for desktop)
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', () => {
+                    if (window.innerWidth > 992) { // Only for desktop
+                        dropdown.classList.add('open');
+                    }
+                });
+                dropdown.addEventListener('mouseleave', () => {
+                    if (window.innerWidth > 992) { // Only for desktop
+                        dropdown.classList.remove('open');
+                    }
+                });
+
+                // For mobile dropdown toggle
+                const dropdownLink = dropdown.querySelector('a[href="#services"]'); // Target the 'Services' link
+                if (dropdownLink) {
+                    dropdownLink.addEventListener('click', (event) => {
+                        if (window.innerWidth <= 992) { // Only for mobile
+                            event.preventDefault(); // Prevent immediate navigation
+                            dropdown.classList.toggle('open');
+                        }
+                    });
+                }
+            });
+
+            // Scroll reveal animations
+            const revealElements = document.querySelectorAll('.reveal');
+            const options = {
+                threshold: 0.1, // Element is 10% visible
+                rootMargin: "0px 0px -50px 0px" // Adjust when element is considered in view
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, options);
+
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Button click animations (ripple effect) - for dynamically added buttons
+            // This needs to be attached after dynamic content is loaded or via event delegation
+            document.body.addEventListener('click', function(e) {
+                // The .btn class is no longer present for the removed buttons, so this part is effectively safe.
+                // If you were to add new buttons elsewhere, this ripple effect would still apply.
+                if (e.target.matches('.btn')) {
+                    const button = e.target;
+                    const ripple = document.createElement('span');
+                    const rect = button.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    button.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('a[href^="#"]')) {
+                    e.preventDefault();
+                    const target = document.querySelector(e.target.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

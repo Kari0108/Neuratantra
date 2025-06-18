@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Strategy & Implementation - NeuraTantra AI</title>
+    <link rel="stylesheet" href="stylu.css">
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 50%, var(--color-bg) 100%);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(110, 84, 194, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(76, 144, 230, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: var(--font-size-5xl);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Strategic Roadmap Section */
+        .roadmap-section {
+            padding: 6rem 0;
+            background: var(--color-bg);
+        }
+        
+        .roadmap-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .roadmap-text {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--color-text-muted);
+        }
+        
+        .roadmap-checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .roadmap-checklist li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-lg);
+            font-weight: 500;
+        }
+        
+        .roadmap-checklist li::before {
+            content: '•';
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        
+        /* Technology Stack Section */
+        .tech-stack-section {
+            padding: 6rem 0;
+            background: var(--color-bg-alt);
+        }
+        
+        .tech-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-card {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            transform: scaleX(0);
+            transition: transform var(--transition-medium);
+        }
+        
+        .tech-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+            border-color: rgba(110, 84, 194, 0.3);
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .tech-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .tech-card p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Custom AI Solution Section */
+        .solution-section {
+            padding: 6rem 0;
+            background: var(--color-bg);
+        }
+        
+        .solution-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .solution-text {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .solution-feature {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-medium);
+        }
+        
+        .solution-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+            border-color: rgba(110, 84, 194, 0.2);
+        }
+        
+        .solution-feature h4 {
+            font-size: var(--font-size-lg);
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .solution-feature p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Implementation Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+            background: var(--color-bg-alt);
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            z-index: 1;
+        }
+        
+        .timeline-step {
+            background: var(--color-card-bg);
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--color-primary);
+            position: relative;
+            z-index: 2;
+            transition: all var(--transition-medium);
+        }
+        
+        .timeline-step:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(110, 84, 194, 0.3);
+        }
+        
+        .step-number {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-label {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            text-align: center;
+            color: var(--color-text);
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 6rem 0;
+            background: var(--color-bg);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .benefit-item h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .benefit-item p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .hero-title {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .roadmap-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .tech-cards {
+                grid-template-columns: repeat(auto-fit, minWidth(250px, 1fr));
+            }
+            
+            .timeline {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: var(--font-size-3xl);
+            }
+            
+            .hero-subtitle {
+                font-size: var(--font-size-lg);
+            }
+            
+            .tech-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-step {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .solution-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content reveal">
+                    <h1 class="hero-title">
+                        AI Strategy & <span class="text-gradient">Implementation</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Comprehensive AI strategy development and hands-on implementation support to ensure successful digital transformation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Roadmap Development -->
+        <section class="roadmap-section">
+            <div class="container">
+                <h2 class="section-title reveal">Strategic Roadmap Development</h2>
+                <div class="roadmap-content">
+                    <div class="reveal reveal-delay-1">
+                        <p class="roadmap-text">
+                            NeuraTantra helps businesses define clear AI transformation milestones, ensuring your digital evolution is structured, measurable, and aligned with your strategic objectives. Our comprehensive approach transforms complex AI possibilities into actionable roadmaps.
+                        </p>
+                    </div>
+                    <div class="reveal reveal-delay-2">
+                        <ul class="roadmap-checklist">
+                            <li>Current state audit</li>
+                            <li>Use case prioritization</li>
+                            <li>Milestone mapping</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack & Architecture -->
+        <section class="tech-stack-section">
+            <div class="container">
+                <h2 class="section-title reveal text-center">Technology Stack & Architecture</h2>
+                <div class="tech-cards">
+                    <div class="tech-card reveal reveal-delay-1">
+                        <div class="tech-icon">🧠</div>
+                        <h3>LLM Selection</h3>
+                        <p>Strategic selection and optimization of large language models tailored to your specific use cases and performance requirements.</p>
+                    </div>
+                    <div class="tech-card reveal reveal-delay-2">
+                        <div class="tech-icon">☁️</div>
+                        <h3>Cloud & API Strategy</h3>
+                        <p>Comprehensive cloud architecture design and API strategy development for scalable, secure AI implementations.</p>
+                    </div>
+                    <div class="tech-card reveal reveal-delay-3">
+                        <div class="tech-icon">🔒</div>
+                        <h3>Security Framework</h3>
+                        <p>Enterprise-grade security protocols and compliance frameworks designed specifically for AI systems and data protection.</p>
+                    </div>
+                    <div class="tech-card reveal reveal-delay-1">
+                        <div class="tech-icon">📊</div>
+                        <h3>Data Architecture</h3>
+                        <p>Robust data pipeline design and management strategies to ensure optimal AI model performance and reliability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom AI Solution Design -->
+        <section class="solution-section">
+            <div class="container">
+                <h2 class="section-title reveal text-center">Custom AI Solution <span class="text-gradient">Design</span></h2>
+                <div class="solution-content">
+                    <div class="reveal reveal-delay-1">
+                        <p class="solution-text">
+                            Our solutions are meticulously designed for industry-specific needs, combining deep domain expertise with cutting-edge AI capabilities. We create bespoke architectures that seamlessly integrate with your existing systems while delivering transformative business value.
+                        </p>
+                    </div>
+                    <div class="solution-features">
+                        <div class="solution-feature reveal reveal-delay-2">
+                            <h4>Industry Specialization</h4>
+                            <p>Tailored solutions for healthcare, finance, manufacturing, and retail sectors with deep domain understanding.</p>
+                        </div>
+                        <div class="solution-feature reveal reveal-delay-3">
+                            <h4>System Integration</h4>
+                            <p>Seamless integration with existing enterprise systems, databases, and workflows for minimal disruption.</p>
+                        </div>
+                        <div class="solution-feature reveal reveal-delay-1">
+                            <h4>Scalable Architecture</h4>
+                            <p>Future-proof designs that grow with your business needs and adapt to evolving AI technologies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Oversight & Optimization -->
+        <section class="timeline-section">
+            <div class="container">
+                <h2 class="section-title reveal text-center">Implementation Oversight & Optimization</h2>
+                <div class="timeline">
+                    <div class="timeline-step reveal reveal-delay-1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Design</div>
+                    </div>
+                    <div class="timeline-step reveal reveal-delay-2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Build</div>
+                    </div>
+                    <div class="timeline-step reveal reveal-delay-3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Deploy</div>
+                    </div>
+                    <div class="timeline-step reveal reveal-delay-1">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Monitor</div>
+                    </div>
+                    <div class="timeline-step reveal reveal-delay-2">
+                        <div class="step-number">5</div>
+                        <div class="step-label">Optimize</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2 class="section-title reveal text-center">Why Choose Our <span class="text-gradient">Strategy</span> Approach</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item reveal reveal-delay-1">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Accelerated Implementation</h3>
+                        <p>Reduce time-to-market with proven methodologies and strategic planning that eliminates common pitfalls.</p>
+                    </div>
+                    <div class="benefit-item reveal reveal-delay-2">
+                        <div class="benefit-icon">🎯</div>
+                        <h3>ROI-Focused Results</h3>
+                        <p>Every strategy decision is aligned with measurable business outcomes and clear return on investment.</p>
+                    </div>
+                    <div class="benefit-item reveal reveal-delay-3">
+                        <div class="benefit-icon">🔄</div>
+                        <h3>Continuous Optimization</h3>
+                        <p>Ongoing monitoring and refinement ensure your AI systems evolve with your business needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add floating animation to tech cards
+        document.querySelectorAll('.tech-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.classList.add('float-animation');
+        });
+    </script>
+</body>
+</html>
