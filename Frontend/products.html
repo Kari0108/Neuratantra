@@ -635,44 +635,6 @@
         })
         .catch(error => {
             console.log('Navbar not found, using fallback');
-            // Fallback navbar
-            document.getElementById('navbar-container').innerHTML = `
-                <header class="site-header">
-                    <div class="container">
-                        <nav class="navbar">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <div class="logo-icon">
-                                        <svg class="logo-svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-gradient">NeuraTantra</span><span class="accent">AI</span>
-                                </a>
-                            </div>
-                            <div class="nav-container">
-                                <nav class="main-nav">
-                                    <ul class="nav-links">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="products.html">Products</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                                <div class="nav-cta">
-                                    <a href="#" class="btn btn-primary">Get Started</a>
-                                </div>
-                            </div>
-                            <button class="menu-toggle">
-                                <span class="hamburger-line"></span>
-                                <span class="hamburger-line"></span>
-                                <span class="hamburger-line"></span>
-                            </button>
-                        </nav>
-                    </div>
-                </header>
-            `;
-            initializeNavbar();
         });
 
     // Load footer
@@ -683,68 +645,6 @@
         })
         .catch(error => {
             console.log('Footer not found, using fallback');
-            // Fallback footer
-            document.getElementById('footer-container').innerHTML = `
-                <footer class="footer">
-                    <div class="container">
-                        <div class="footer-content">
-                            <div class="footer-logo">
-                                <h2><span class="text-gradient">NeuraTantra</span><span class="accent">AI</span></h2>
-                                <p>Transforming businesses with intelligent AI solutions.</p>
-                            </div>
-                            <div class="footer-links">
-                                <div class="footer-links-group">
-                                    <h3>Products</h3>
-                                    <ul>
-                                        <li><a href="#">AgentOS Lite</a></li>
-                                        <li><a href="#">Agent Builder</a></li>
-                                        <li><a href="#">Consulting</a></li>
-                                    </ul>
-                                </div>
-                                <div class="footer-links-group">
-                                    <h3>Company</h3>
-                                    <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                                <div class="footer-links-group">
-                                    <h3>Support</h3>
-                                    <ul>
-                                        <li><a href="#">Documentation</a></li>
-                                        <li><a href="#">Help Center</a></li>
-                                        <li><a href="#">Community</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="footer-social">
-                                <h3>Follow Us</h3>
-                                <div class="footer-social-links">
-                                    <a href="#" class="footer-social-link">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#" class="footer-social-link">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                    <a href="#" class="footer-social-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-bottom">
-                            <div class="copyright">
-                                © 2024 NeuraTantra AI. All rights reserved.
-                            </div>
-                            <div class="legal-links">
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">Terms of Service</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            `;
         });
 
     // Navbar functionality
@@ -770,36 +670,14 @@
                 navContainer.classList.toggle('active');
             });
         }
-    // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.navbar')) {
-                    if (menuToggle) menuToggle.classList.remove('active');
-                    if (navContainer) navContainer.classList.remove('active');
-                }
-            });
 
-            // Dropdown functionality
-            dropdowns.forEach(dropdown => {
-                const trigger = dropdown.querySelector('.dropdown-trigger');
-                const menu = dropdown.querySelector('.dropdown-menu');
-
-                if (trigger) {
-                    trigger.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        dropdown.classList.toggle('active');
-                    });
-                }
-            });
-
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.dropdown')) {
-                    dropdowns.forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                }
-            });
-        }
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (navContainer) navContainer.classList.remove('active');
+            }
+        });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -814,117 +692,9 @@
                 }
             });
         });
-
-        // Add loading animation for pricing cards
-        const pricingCards = document.querySelectorAll('.pricing-card');
-        pricingCards.forEach((card, index) => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = card.classList.contains('featured')
-                    ? 'translateY(-10px) scale(1.05)'
-                    : 'translateY(-10px)';
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = card.classList.contains('featured')
-                    ? 'scale(1.05)'
-                    : 'none';
-            });
-        });
-
-        // Enhanced product card interactions
-        const productCards = document.querySelectorAll('.product-card');
-        productCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px)';
-                card.style.boxShadow = 'var(--box-shadow-hover)';
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
-                card.style.boxShadow = '';
-            });
-        });
-
-        // Integration items animation
-        const integrationItems = document.querySelectorAll('.integration-item');
-        integrationItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'translateY(-5px)';
-                item.style.background = 'rgba(255, 255, 255, 0.05)';
-            });
-
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'translateY(0)';
-                item.style.background = 'rgba(255, 255, 255, 0.02)';
-            });
-        });
-
-        // Add click tracking for analytics (placeholder)
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                // Analytics tracking would go here
-                console.log('Button clicked:', button.textContent);
-            });
-        });
-
-        // Intersection Observer for counting animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        // Observe all animated elements
-        document.querySelectorAll('[data-aos]').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Handle form submissions (if any forms are added later)
-        document.addEventListener('submit', (e) => {
-            const form = e.target;
-            if (form.classList.contains('contact-form') || form.classList.contains('demo-form')) {
-                e.preventDefault();
-                // Handle form submission
-                console.log('Form submitted');
-            }
-        });
-
-        // Add keyboard navigation support
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                // Close all dropdowns and mobile menu
-                document.querySelectorAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-
-                const menuToggle = document.querySelector('.menu-toggle');
-                const navContainer = document.querySelector('.nav-container');
-                if (menuToggle) menuToggle.classList.remove('active');
-                if (navContainer) navContainer.classList.remove('active');
-            }
-        });
-
-        // Performance optimization: Lazy load images if any are added
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
+    }
 </script>
+
+
 </body>
 </html>
