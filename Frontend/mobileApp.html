@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Development - NeuraTantra AI</title>
+    <link rel="stylesheet" href="stylu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Custom page styles */
+        body {
+            margin: 0;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--color-bg) 0%, rgba(22, 22, 45, 0.8) 100%);
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(110, 84, 194, 0.1) 0%, transparent 70%),
+                        radial-gradient(circle at 70% 30%, rgba(76, 144, 230, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(135deg, rgba(110, 84, 194, 0.2), rgba(76, 144, 230, 0.2));
+            border-radius: 35px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .phone-screen {
+            width: 260px;
+            height: 540px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 28px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-ui-element {
+            width: 80%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 4px;
+            margin: 8px 0;
+            opacity: 0.8;
+        }
+
+        .app-ui-element:nth-child(2) {
+            width: 60%;
+            background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+        }
+
+        .app-ui-element:nth-child(3) {
+            width: 90%;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: floatUp 8s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: -10%;
+            animation-delay: -2s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 60%;
+            right: -10%;
+            animation-delay: -4s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: -15%;
+            animation-delay: -6s;
+        }
+
+        .services-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(22, 22, 45, 0.3) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            transform: scaleX(0);
+            transition: transform var(--transition-medium);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(110, 84, 194, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .service-card p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--color-text-muted);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        .tech-stack-section {
+            padding: 6rem 0;
+            background: var(--color-bg-alt);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-medium);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(110, 84, 194, 0.3);
+        }
+
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .success-stories-section {
+            padding: 6rem 0;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-metrics {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .metric-label {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .workflow-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, rgba(22, 22, 45, 0.3) 0%, transparent 100%);
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .workflow-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .workflow-step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .workflow-step p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        .security-section {
+            padding: 6rem 0;
+            background: var(--color-bg-alt);
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-medium);
+        }
+
+        .security-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(46, 203, 175, 0.3);
+        }
+
+        .security-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-accent-2), #34d399);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(110, 84, 194, 0.1) 0%, rgba(76, 144, 230, 0.1) 100%);
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Container and base styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Base variables */
+        :root {
+            --color-primary: #6E54C2;
+            --color-secondary: #4C90E6;
+            --color-accent-2: #F39C12;
+            --color-bg: #101020;
+            --color-bg-alt: #0A0A15;
+            --color-card-bg: rgba(255, 255, 255, 0.05);
+            --color-text: #FFFFFF;
+            --color-text-muted: #B0B0C0;
+            --color-border: rgba(255, 255, 255, 0.1);
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--color-text-muted);
+        }
+
+        /* Updated button styles to match the image */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color:white;
+            border: 2px solid #a855f7;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Animations */
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        .animate-in {
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+            }
+
+            .phone-screen {
+                width: 180px;
+                height: 380px;
+            }
+
+            .services-grid,
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workflow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .story-metrics {
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 250px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .service-card,
+            .story-card {
+                padding: 1.5rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation will be loaded here -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-right">
+                <h1>Build Powerful <span class="highlight">Mobile Experiences</span> with NeuraTantra</h1>
+                <p>Create scalable, performant, and secure mobile applications for iOS and Android that deliver exceptional user experiences and drive business growth.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Start Your App Journey</a>
+                    <a href="demo.html" class="btn btn-secondary">Schedule a Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="app-ui-element"></div>
+                        <div class="app-ui-element"></div>
+                        <div class="app-ui-element"></div>
+                        <div class="app-ui-element"></div>
+                        <div class="app-ui-element"></div>
+                    </div>
+                </div>
+                <div class="floating-icons">
+                    <div class="floating-icon">📱</div>
+                    <div class="floating-icon">⚡</div>
+                    <div class="floating-icon">🔒</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Development Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title">App Development Services</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Comprehensive mobile app development solutions tailored to your business needs and user expectations.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">📱</div>
+                    <h3>Native App Development</h3>
+                    <p>Platform-specific apps built with native technologies for optimal performance and user experience.</p>
+                    <ul class="service-features">
+                        <li>iOS development with Swift</li>
+                        <li>Android development with Kotlin</li>
+                        <li>Platform-optimized UI/UX</li>
+                        <li>Full hardware integration</li>
+                        <li>App Store optimization</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">🔄</div>
+                    <h3>Cross-platform Development</h3>
+                    <p>Build once, deploy everywhere with modern cross-platform frameworks for faster time-to-market.</p>
+                    <ul class="service-features">
+                        <li>Flutter development</li>
+                        <li>React Native solutions</li>
+                        <li>Shared codebase efficiency</li>
+                        <li>Native performance</li>
+                        <li>Cost-effective development</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Design & Prototyping</h3>
+                    <p>User-centered design approach that creates intuitive and engaging mobile experiences.</p>
+                    <ul class="service-features">
+                        <li>User research & personas</li>
+                        <li>Interactive prototypes</li>
+                        <li>Design system creation</li>
+                        <li>Usability testing</li>
+                        <li>Accessibility compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title">Technology Stack</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Cutting-edge technologies and frameworks we use to build exceptional mobile applications.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tech-icon">📱</div>
+                    <h4>Flutter</h4>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="tech-icon">⚛️</div>
+                    <h4>React Native</h4>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tech-icon">🔷</div>
+                    <h4>Kotlin</h4>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="tech-icon">🍎</div>
+                    <h4>Swift</h4>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tech-icon">🔥</div>
+                    <h4>Firebase</h4>
+                </div>
+                <div class="tech-item" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="tech-icon">☁️</div>
+                    <h4>AWS Mobile</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Real results from our mobile app development projects that transformed businesses.</p>
+            </div>
+
+            <div class="stories-grid">
+                <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>E-Commerce Mobile App</h3>
+                    <p>Developed a comprehensive shopping app that increased mobile sales by 150% and improved user engagement significantly.</p>
+                    <div class="story-metrics">
+                        <div class="metric">
+                            <div class="metric-value">150%</div>
+                            <div class="metric-label">Sales Increase</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.8★</div>
+                            <div class="metric-label">App Store Rating</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">100K+</div>
+                            <div class="metric-label">Downloads</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Healthcare Platform</h3>
+                    <p>Built a telemedicine app that connects patients with healthcare providers, improving accessibility and reducing wait times.</p>
+                    <div class="story-metrics">
+                        <div class="metric">
+                            <div class="metric-value">80%</div>
+                            <div class="metric-label">Faster Consultations</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">50K+</div>
+                            <div class="metric-label">Active Users</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.9★</div>
+                            <div class="metric-label">User Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Fintech Solution</h3>
+                    <p>Created a secure financial management app with advanced analytics and real-time transaction monitoring capabilities.</p>
+                    <div class="story-metrics">
+                        <div class="metric">
+                            <div class="metric-value">99.9%</div>
+                            <div class="metric-label">Uptime</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">$2M+</div>
+                            <div class="metric-label">Transactions Processed</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Zero</div>
+                            <div class="metric-label">Security Breaches</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Workflow -->
+    <section class="workflow-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title">Development Workflow</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Our proven development process ensures your app is delivered on time, within budget, and exceeds expectations.</p>
+            </div>
+
+            <div class="workflow-steps">
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h4>Discovery & Planning</h4>
+                    <p>We analyze your requirements, target audience, and business goals to create a comprehensive project roadmap.</p>
+                </div>
+
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h4>Design & Prototyping</h4>
+                    <p>Our design team creates intuitive user interfaces and interactive prototypes to visualize your app's functionality.</p>
+                </div>
+
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h4>Development & Testing</h4>
+                    <p>We use agile methodology to build your app with continuous testing and quality assurance throughout the process.</p>
+                </div>
+
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h4>Deployment & Support</h4>
+                    <p>We handle app store submissions and provide ongoing maintenance and support to ensure optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Performance -->
+    <section class="security-section">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title">Security & Performance</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Enterprise-grade security measures and performance optimization to protect your users and ensure seamless experiences.</p>
+            </div>
+
+            <div class="security-grid">
+                <div class="security-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="security-icon">🔒</div>
+                    <div>
+                        <h4>Data Encryption</h4>
+                        <p>End-to-end encryption for all data transmission and storage</p>
+                    </div>
+                </div>
+
+                <div class="security-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="security-icon">🛡️</div>
+                    <div>
+                        <h4>Authentication</h4>
+                        <p>Multi-factor authentication and biometric security integration</p>
+                    </div>
+                </div>
+
+                <div class="security-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="security-icon">⚡</div>
+                    <div>
+                        <h4>Performance Optimization</h4>
+                        <p>Fast loading times and smooth animations for better UX</p>
+                    </div>
+                </div>
+
+                <div class="security-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="security-icon">🔍</div>
+                    <div>
+                        <h4>Code Security Audit</h4>
+                        <p>Regular security assessments and vulnerability testing</p>
+                    </div>
+                </div>
+
+                <div class="security-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="security-icon">📊</div>
+                    <div>
+                        <h4>Analytics & Monitoring</h4>
+                        <p>Real-time performance monitoring and user behavior analytics</p>
+                    </div>
+                </div>
+
+                <div class="security-item" data-aos="fade-up" data-aos-delay="350">
+                    <div class="security-icon">☁️</div>
+                    <div>
+                        <h4>Cloud Integration</h4>
+                        <p>Scalable cloud infrastructure with automatic backups</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Build Your Mobile App?</h2>
+                <p>Let's transform your idea into a powerful mobile application that drives business growth and delights users.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Load navbar and footer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading navbar:', error));
+
+            // Load footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
+
+        // Button ripple effect
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .story-card, .tech-item, .workflow-step, .security-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add loading states for better UX
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Handle mobile menu interactions
+        let mobileMenuOpen = false;
+        function toggleMobileMenu() {
+            mobileMenuOpen = !mobileMenuOpen;
+            // This will be handled by the navbar.html script
+        }
+
+        // Add scroll-based navbar styling
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollY = window.scrollY;
+            }
+        });
+
+        // Performance optimization - lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>
