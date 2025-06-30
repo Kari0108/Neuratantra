@@ -331,467 +331,472 @@
             }
         }
 
-        /* Styles for Multi Agents & Chat Assistants section (inserted from working.html) */
-        .container-working {
-            display: flex;
-            min-height: 50vh;
-            flex-wrap: wrap;
-            background: #0a0a17;
-            margin-top: 80px;
-            border-radius: 16px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            padding: 40px 20px;
-        }
-        @media (max-width: 1024px) {
-            .container-working {
-                flex-direction: column;
-                padding: 20px 10px;
-                min-height: auto;
-            }
-        }
+     /* Styles for Multi Agents & Chat Assistants section (inserted from working.html) */
+.container-working {
+    display: flex;
+    min-height: 50vh;
+    flex-wrap: wrap;
+    background: #0a0a17;
+    margin-top: 80px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    padding: 40px 20px;
+}
 
-        .left-section-working,
-        .right-section-working {
-            flex: 1;
-            min-width: 50px;
-            padding: 60px 40px;
-            background: #111124;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            border-radius: 16px;
-            box-shadow: 0 0 30px #0a0a17;
-            margin: 12px;
-        }
+@media (max-width: 1024px) {
+    .container-working {
+        flex-direction: column;
+        padding: 20px 10px;
+        min-height: auto;
+    }
+}
 
-        @media (max-width: 768px) {
-            .left-section-working,
-            .right-section-working {
-                min-width: 100%;
-                padding: 40px 20px;
-                margin: 16px 0;
-            }
-        }
+.left-section-working,
+.right-section-working {
+    flex: 1;
+    min-width: 50px;
+    padding: 40px 20px; /* Reduced padding for smaller size */
+    background: #111124;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 0 30px #0a0a17;
+    margin: 12px;
+}
 
-        .brand-working {
-            font-size: 24px;
-            font-weight: 600;
-            color: #4f9cf9;
-            background: linear-gradient(135deg, #4f9cf9, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
+@media (max-width: 768px) {
+    .left-section-working,
+    .right-section-working {
+        min-width: 100%;
+        padding: 20px 10px; /* Further reduced padding for mobile */
+        margin: 16px 0;
+    }
+}
 
-        .purple-brand-working {
-            color: #8b5cf6;
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.brand-working {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4f9cf9;
+    background: linear-gradient(135deg, #4f9cf9, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
 
-        .title-working {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff, #e5e7eb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
+.purple-brand-working {
+    color: #8b5cf6;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        @media (max-width: 768px) {
-            .title-working {
-                font-size: 36px;
-            }
-        }
+.title-working {
+    font-size: 36px; /* Reduced font size for better balance */
+    font-weight: 700;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff, #e5e7eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
 
-        .description-working {
-            font-size: 18px;
-            color: #9ca3af;
-            line-height: 1.6;
-            margin-bottom: 60px;
-            max-width: 450px;
-        }
+@media (max-width: 768px) {
+    .title-working {
+        font-size: 28px; /* Further reduced font size for mobile */
+    }
+}
 
-        .workflow-diagram {
-            position: relative;
-            margin-top: 40px;
-            height: 300px;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-        }
+.description-working {
+    font-size: 16px; /* Reduced font size for better balance */
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 450px;
+}
 
-        .node {
-            position: absolute;
-            padding: 14px 28px;
-            border-radius: 16px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-            z-index: 2;
-        }
+.workflow-diagram {
+    position: relative;
+    margin-top: 40px;
+    height: 300px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
 
-        .node:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
+.node {
+    position: absolute;
+    padding: 14px 28px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
 
-        .start-node {
-            background: linear-gradient(135deg, #22c55e, #16a34a); /* Green */
-            color: white;
-            top: 120px;
-            left: 20px;
-            animation: pulse 2s infinite;
-        }
+.node:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
 
-        .search-node {
-            background: linear-gradient(135deg, #0ea5e9, #0284c7); /* Light Blue */
-            color: white;
-            top: 40px;
-            left: 280px;
-        }
+.start-node {
+    background: linear-gradient(135deg, #22c55e, #16a34a); /* Green */
+    color: white;
+    top: 120px;
+    left: 20px;
+    animation: pulse 2s infinite;
+}
 
-        .summarize-node {
-            background: linear-gradient(135deg, #3b82f6, #2563eb); /* Blue */
-            color: white;
-            top: 120px;
-            left: 350px;
-        }
+.search-node {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7); /* Light Blue */
+    color: white;
+    top: 40px;
+    left: 280px;
+}
 
-        .request-node {
-            background: linear-gradient(135deg, #ef4444, #dc2626); /* Red */
-            color: white;
-            top: 200px;
-            left: 280px;
-        }
+.summarize-node {
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* Blue */
+    color: white;
+    top: 120px;
+    left: 350px;
+}
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
+.request-node {
+    background: linear-gradient(135deg, #ef4444, #dc2626); /* Red */
+    color: white;
+    top: 200px;
+    left: 280px;
+}
 
-        .node-icon {
-            width: 18px;
-            height: 18px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-        }
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
 
-        .connector-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
+.node-icon {
+    width: 18px;
+    height: 18px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
 
-        .line {
-            position: absolute;
-            height: 3px;
-            background: linear-gradient(90deg, #333, #555, #333);
-            transform-origin: left center;
-            border-radius: 2px;
-            opacity: 0.6;
-        }
+.connector-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
 
-        .line1 { top: 134px; left: 140px; width: 160px; transform: rotate(-20deg); }
-        .line2 { top: 134px; left: 140px; width: 230px; transform: rotate(0deg); }
-        .line3 { top: 134px; left: 140px; width: 160px; transform: rotate(35deg); }
+.line {
+    position: absolute;
+    height: 3px;
+    background: linear-gradient(90deg, #333, #555, #333);
+    transform-origin: left center;
+    border-radius: 2px;
+    opacity: 0.6;
+}
 
-        /* Arrows for connector lines */
-        .line::after {
-            content: '';
-            position: absolute;
-            right: -6px;
-            top: -3px;
-            width: 0;
-            height: 0;
-            border-left: 6px solid #555;
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-        }
+.line1 { top: 134px; left: 140px; width: 160px; transform: rotate(-20deg); }
+.line2 { top: 134px; left: 140px; width: 230px; transform: rotate(0deg); }
+.line3 { top: 134px; left: 140px; width: 160px; transform: rotate(35deg); }
 
-        .chat-section {
-            margin-top: 40px;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-        }
+/* Arrows for connector lines */
+.line::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: -3px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid #555;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
 
-        .chat-container {
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border-radius: 20px;
-            padding: 28px;
-            max-width: 520px;
-            width: 100%;
-            border: 1px solid #333;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
+.chat-section {
+    margin-top: 40px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
 
-        .chat-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #333;
-        }
+.chat-container {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border-radius: 20px;
+    padding: 20px; /* Reduced padding */
+    max-width: 90%; /* Allow more width on mobile */
+    width: 100%; /* Full width on mobile */
+    border: 1px solid #333;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
 
-        .chat-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #4f9cf9, #3b82f6);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(79, 156, 249, 0.3);
-        }
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
 
-        .chat-title {
-            font-weight: 600;
-            color: #fff;
-            font-size: 16px;
-        }
+.chat-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #4f9cf9, #3b82f6);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(79, 156, 249, 0.3);
+}
 
-        .refresh-icon {
-            margin-left: auto;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: all 0.3s ease;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.chat-title {
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px; /* Reduced font size */
+}
 
-        .refresh-icon:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.1);
-        }
+.refresh-icon {
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .chat-messages {
-            max-height: 280px;
-            overflow-y: auto;
-            margin-bottom: 24px;
-            scrollbar-width: thin;
-            scrollbar-color: #444 transparent;
-        }
+.refresh-icon:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
 
-        .chat-messages::-webkit-scrollbar { width: 4px; }
-        .chat-messages::-webkit-scrollbar-track { background: transparent; }
-        .chat-messages::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+.chat-messages {
+    max-height: 200px; /* Reduced max height */
+    overflow-y: auto;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+    scrollbar-color: #444 transparent;
+}
 
-        .message { margin-bottom: 20px; }
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
 
-        .user-message {
-            color: #9ca3af;
-            font-size: 14px;
-            margin-bottom: 8px;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px 12px 4px 12px;
-            display: inline-block;
-            max-width: 80%;
-            margin-left: auto;
-            display: block;
-            text-align: right;
-        }
+.message { margin-bottom: 20px; }
 
-        .bot-message {
-            color: #fff;
-            font-size: 10px;
-            line-height: 1.5;
-            padding: 12px 16px;
-            background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+.user-message {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px 12px 4px 12px;
+    display: inline-block;
+    max-width: 80%;
+    margin-left: auto;
+    display: block;
+    text-align: right;
+}
 
-        .file-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid for file types */
-            gap: 12px;
-            margin: 24px 0;
-        }
+.bot-message {
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        .file-type {
-            width: 100%;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
+.file-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid for file types */
+    gap: 12px;
+    margin: 24px 0;
+}
 
-        .file-type:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
+.file-type {
+    width: 100%;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
 
-        /* File type specific background colors */
-        .pdf { background: linear-gradient(135deg, #dc2626, #b91c1c); } /* Red */
-        .txt { background: linear-gradient(135deg, #059669, #047857); } /* Green */
-        .css { background: linear-gradient(135deg, #2563eb, #1d4ed8); } /* Blue */
-        .html { background: linear-gradient(135deg, #ea580c, #c2410c); } /* Orange */
-        .csv { background: linear-gradient(135deg, #16a34a, #15803d); } /* Darker Green */
-        .xml { background: linear-gradient(135deg, #7c3aed, #6d28d9); } /* Purple */
+.file-type:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 
-        .chat-input {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-        }
+/* File type specific background colors */
+.pdf { background: linear-gradient(135deg, #dc2626, #b91c1c); } /* Red */
+.txt { background: linear-gradient(135deg, #059669, #047857); } /* Green */
+.css { background: linear-gradient(135deg, #2563eb, #1d4ed8); } /* Blue */
+.html { background: linear-gradient(135deg, #ea580c, #c2410c); } /* Orange */
+.csv { background: linear-gradient(135deg, #16a34a, #15803d); } /* Darker Green */
+.xml { background: linear-gradient(135deg, #7c3aed, #6d28d9); } /* Purple */
 
-        .input-container {
-            flex: 1;
-            background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
-            border-radius: 16px;
-            padding: 14px 18px;
-            border: 1px solid #444;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
+.chat-input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
 
-        .input-container:focus-within {
-            border-color: #4f9cf9;
-            box-shadow: 0 0 0 3px rgba(79, 156, 249, 0.1);
-        }
+.input-container {
+    flex: 1;
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    border-radius: 16px;
+    padding: 10px; /* Reduced padding */
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
 
-        .input-field {
-            flex: 1;
-            background: none;
-            border: none;
-            outline: none;
-            color: #e5e7eb;
-            font-size: 14px;
-        }
+.input-container:focus-within {
+    border-color: #4f9cf9;
+    box-shadow: 0 0 0 3px rgba(79, 156, 249, 0.1);
+}
 
-        .input-field::placeholder { color: #6b7280; }
+.input-field {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: #e5e7eb;
+    font-size: 14px;
+}
 
-        .input-icon {
-            width: 18px;
-            height: 18px;
-            opacity: 0.6;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.input-field::placeholder { color: #6b7280; }
 
-        .input-icon:hover { opacity: 1; }
+.input-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .send-button {
-            background: linear-gradient(135deg, #4f9cf9, #3b82f6);
-            border: none;
-            border-radius: 12px;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(79, 156, 249, 0.3);
-        }
+.input-icon:hover { opacity: 1; }
 
-        .send-button:hover {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            transform: translateY(-1px) scale(1.02);
-            box-shadow: 0 6px 16px rgba(79, 156, 249, 0.4);
-        }
+.send-button {
+    background: linear-gradient(135deg, #4f9cf9, #3b82f6);
+    border: none;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(79, 156, 249, 0.3);
+}
 
-        .send-button:active { transform: translateY(0) scale(0.98); }
+.send-button:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(79, 156, 249, 0.4);
+}
 
-        /* Team Section Layout adjustments for responsiveness */
-        .team-grid {
-            display: flex; /* Changed to flex for better control over alignment and spacing */
-            flex-wrap: wrap; /* Allow items to wrap to the next line */
-            justify-content: center; /* Center items when they don't fill the row */
-            gap: 2rem; /* Consistent spacing between cards */
-            align-items: stretch; /* IMPORTANT: Makes all cards in a row the same height */
-        }
-        .team-member {
-            flex: 1 1 calc(33.333% - 2rem); /* Each card takes roughly 1/3rd width minus gap, grows and shrinks */
-            max-width: calc(33.333% - 2rem); /* Ensures three cards per row on larger screens */
-            display: flex; /* Use flexbox for internal content alignment */
-            flex-direction: column; /* Stack content vertically */
-            justify-content: space-between; /* Distribute space evenly */
-            height: auto; /* Allow height to be determined by content, but stretched by parent flexbox */
-            /* Removed fixed height or max-width as it's handled by flex properties */
-        }
+.send-button:active { transform: translateY(0) scale(0.98); }
 
-        @media (max-width: 1024px) { /* Adjust for smaller desktops/large tablets */
-            .team-member {
-                flex: 1 1 calc(50% - 2rem); /* Two cards per row */
-                max-width: calc(50% - 2rem);
-            }
-        }
+/* Team Section Layout adjustments for responsiveness */
+.team-grid {
+    display: flex; /* Changed to flex for better control over alignment and spacing */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items when they don't fill the row */
+    gap: 2rem; /* Consistent spacing between cards */
+    align-items: stretch; /* IMPORTANT: Makes all cards in a row the same height */
+}
 
-        @media (max-width: 768px) { /* Adjust for tablets/mobile */
-            .team-member {
-                flex: 1 1 100%; /* One card per row */
-                max-width: 100%;
-            }
-        }
+.team-member {
+    flex: 1 1 calc(33.333% - 2rem); /* Each card takes roughly 1/3rd width minus gap, grows and shrinks */
+    max-width: calc(33.333% - 2rem); /* Ensures three cards per row on larger screens */
+    display: flex; /* Use flexbox for internal content alignment */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute space evenly */
+    height: auto; /* Allow height to be determined by content, but stretched by parent flexbox */
+    /* Removed fixed height or max-width as it's handled by flex properties */
+}
 
-        .team-member .member-info {
-             flex-grow: 1; /* Allow info section to take available space */
-             display: flex;
-             flex-direction: column;
-             justify-content: center; /* Center content vertically */
-        }
+@media (max-width: 1024px) { /* Adjust for smaller desktops/large tablets */
+    .team-member {
+        flex: 1 1 calc(50% - 2rem); /* Two cards per row */
+        max-width: calc(50% - 2rem);
+    }
+}
 
-        /* Contact Section Layout adjustments for responsiveness */
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Side-by-side on desktop, stack on mobile */
-            gap: 4rem; /* Spacing between info and form */
-            align-items: start; /* Align content to the top */
-        }
-        .contact-form .form-group {
-            margin-bottom: 1.5rem; /* Ensure consistent spacing between form fields */
-        }
-        .contact-form .btn {
-            width: auto; /* Allow button to size naturally based on content/padding */
-            min-width: 150px; /* Ensure it's not too small */
-        }
+@media (max-width: 768px) { /* Adjust for tablets/mobile */
+    .team-member {
+        flex: 1 1 100%; /* One card per row */
+        max-width: 100%;
+    }
+}
+
+.team-member .member-info {
+     flex-grow: 1; /* Allow info section to take available space */
+     display: flex;
+     flex-direction: column;
+     justify-content: center; /* Center content vertically */
+}
+
+/* Contact Section Layout adjustments for responsiveness */
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Side-by-side on desktop, stack on mobile */
+    gap: 4rem; /* Spacing between info and form */
+    align-items: start; /* Align content to the top */
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem; /* Ensure consistent spacing between form fields */
+}
+
+.contact-form .btn {
+    width: auto; /* Allow button to size naturally based on content/padding */
+    min-width: 150px; /* Ensure it's not too small */
+}
+
 
         /* AI Automation Section Styles */
         .ai-automation-section {
@@ -877,100 +882,53 @@
         }
 
         /* VISION SECTION (Venn Diagram) UPDATES */
-        .vision-diagram {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 400px; /* Maintain a good height for the diagram */
-            width: 100%;
-        }
+        /* Vision Section Styles */
+.vision-content {
+    display: flex;
+    flex-direction: row; /* Default to row for larger screens */
+    justify-content: space-between; /* Space between text and diagram */
+    align-items: center; /* Center items vertically */
+    margin: 20px 0; /* Add margin for spacing */
+}
 
-        .diagram-container {
-            position: relative;
-            width: 100%; /* Full width */
-            max-width: 500px; /* Max width for larger screens */
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.vision-text {
+    flex: 1; /* Allow text to take available space */
+    margin-right: 20px; /* Space between text and diagram */
+}
 
-        .diagram-circle { /* Styles for Modern AI and Indian Systems Thinking */
-            position: absolute;
-            width: 250px; /* Size for outer circles */
-            height: 250px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1.5rem;
-            font-weight: 600;
-            font-size: var(--font-size-md);
-            opacity: 0.7; /* Make them more transparent for better overlap effect */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all var(--transition-medium);
-            color: var(--color-text); /* Ensure text is visible */
-            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Add text shadow for readability */
-            z-index: 1; /* Ensure these are below the central one */
-        }
+.vision-diagram {
+    flex: 1; /* Allow diagram to take available space */
+    display: flex; /* Ensure it remains centered */
+    justify-content: center; /* Center the diagram */
+    align-items: center; /* Center the diagram vertically */
+}
 
-        .modern-ai {
-            background: radial-gradient(circle at center, rgba(30, 30, 60, 0.7) 0%, rgba(20, 20, 40, 0.7) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            left: 25%; /* Adjusted to match image */
-            top: 50%;
-            transform: translate(-50%, -50%); /* Center it based on its left position */
-        }
+@media (max-width: 768px) {
+    .vision-content {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: center; /* Center items */
+    }
 
-        .indian-thinking {
-            background: radial-gradient(circle at center, rgba(30, 30, 60, 0.7) 0%, rgba(20, 20, 40, 0.7) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            left: 75%; /* Adjusted to match image */
-            top: 50%;
-            transform: translate(-50%, -50%); /* Center it based on its left position */
-        }
+    .vision-text {
+        margin-right: 0; /* Remove right margin */
+        text-align: center; /* Center text */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
 
-        .diagram-intersection { /* This will be the NeuraTantra AI circle */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 250px; /* Increased size to match the image's prominent central circle */
-            height: 250px;
-            background: radial-gradient(circle at center, rgba(50, 50, 80, 0.95) 0%, rgba(30, 30, 60, 0.95) 100%); /* Solid, dark background for prominence */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
-            font-weight: 700;
-            font-size: var(--font-size-lg);
-            border: 2px solid #5C5C8C; /* Distinct, slightly lighter border */
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), /* Stronger shadow */
-                        0 0 20px rgba(99, 102, 241, 0.5), /* Subtle blue glow */
-                        0 0 20px rgba(230, 96, 168, 0.5); /* Subtle pink glow */
-            z-index: 10; /* Make sure it's on top */
-            animation: none; /* Remove previous pulse animation if any */
-            color: #FFFFFF; /* White text for contrast */
-            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Subtle text shadow for readability */
-        }
+    .vision-diagram {
+        width: 100%; /* Full width for diagram */
+        max-width: 300px; /* Limit max width for smaller screens */
+    }
 
+    .section-title {
+        font-size: 2rem; /* Adjust title size */
+    }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                            0 0 20px rgba(110, 84, 194, 0.2),
-                            0 0 20px rgba(46, 203, 175, 0.2);
-            }
-            100% {
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                            0 0 30px rgba(110, 84, 194, 0.4),
-                            0 0 30px rgba(46, 203, 175, 0.4);
-            }
-        }
+    .vision-description {
+        font-size: 1rem; /* Adjust description size */
+    }
+}
+
 
         /* Adjustments for mobile: */
         @media (max-width: 768px) {
@@ -1158,64 +1116,101 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="products-section">
-        <div class="container">
-            <h2 class="section-title">Our Products</h2>
-            <div class="products-container">
-                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-icon">
-                        <svg viewBox="0 0 24 24" class="product-svg">
-                            <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
-                            <path d="M6,12 L10,16 L18,8" class="icon-path"></path>
-                        </svg>
-                    </div>
-                    <h3>AgentOS Lite</h3>
-                    <p>Enterprise-grade autonomous agent orchestration with pre-configured intelligent agents ready for immediate deployment</p>
-                    <ul class="feature-list">
-                        <li>Frictionless workflow integration</li>
-                        <li>Scalable agent architecture</li>
-                        <li>Enterprise security compliance</li>
-                    </ul>
-                    <a href="agentos.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+   <section id="products" class="products-section">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-container">
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-icon">
+                    <svg viewBox="0 0 24 24" class="product-svg">
+                        <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
+                        <path d="M6,12 L10,16 L18,8" class="icon-path"></path>
+                    </svg>
                 </div>
+                <h3>AgentOS Lite</h3>
+                <p>Enterprise-grade autonomous agent orchestration with pre-configured intelligent agents ready for immediate deployment</p>
+                <ul class="feature-list">
+                    <li>Frictionless workflow integration</li>
+                    <li>Scalable agent architecture</li>
+                    <li>Enterprise security compliance</li>
+                </ul>
+                <a href="agentos.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+            </div>
 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-icon">
-                        <svg viewBox="0 0 24 24" class="product-svg">
-                            <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
-                            <path d="M7,7 L17,7 L17,17 L7,17 Z" class="icon-path"></path>
-                            <path d="M10,10 L14,10 M10,12 L14,12 M10,14 L14,14" class="icon-path"></path>
-                        </svg>
-                    </div>
-                    <h3>NeuraTantra Agent Builder</h3>
-                    <p>Intuitive no-code platform for crafting powerful LLM-based agents with drag-and-drop visual agent design interface</p>
-                    <ul class="feature-list">
-                        <li>Visual workflow designer</li>
-                        <li>One-click deployment</li>
-                        <li>Extensive template library</li>
-                    </ul>
-                    <a href="agent-builder.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-icon">
+                    <svg viewBox="0 0 24 24" class="product-svg">
+                        <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
+                        <path d="M7,7 L17,7 L17,17 L7,17 Z" class="icon-path"></path>
+                        <path d="M10,10 L14,10 M10,12 L14,12 M10,14 L14,14" class="icon-path"></path>
+                    </svg>
                 </div>
+                <h3>NeuraTantra Agent Builder</h3>
+                <p>Intuitive no-code platform for crafting powerful LLM-based agents with drag-and-drop visual agent design interface</p>
+                <ul class="feature-list">
+                    <li>Visual workflow designer</li>
+                    <li>One-click deployment</li>
+                    <li>Extensive template library</li>
+                </ul>
+                <a href="agent-builder.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+            </div>
 
-                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="product-icon">
-                        <svg viewBox="0 0 24 24" class="product-svg">
-                            <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
-                            <path d="M12,7 L12,17 M7,12 L17,12" class="icon-path"></path>
-                        </svg>
-                    </div>
-                    <h3>Consulting Services</h3>
-                    <p>Tailored Agent Architecture for enterprise transformation with strategic implementation aligned with business objectives</p>
-                    <ul class="feature-list">
-                        <li>Comprehensive transformation roadmap</li>
-                        <li>Industry-specific solutions</li>
-                        <li>Expert implementation support</li>
-                    </ul>
-                    <a href="ConsultingServicesPage.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-icon">
+                    <svg viewBox="0 0 24 24" class="product-svg">
+                        <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
+                        <path d="M12,7 L12,17 M7,12 L17,12" class="icon-path"></path>
+                    </svg>
                 </div>
+                <h3>Consulting Services</h3>
+                <p>Tailored Agent Architecture for enterprise transformation with strategic implementation aligned with business objectives</p>
+                <ul class="feature-list">
+                    <li>Comprehensive transformation roadmap</li>
+                    <li>Industry-specific solutions</li>
+                    <li>Expert implementation support</li>
+                </ul>
+                <a href="ConsultingServicesPage.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+            </div>
+
+            <!-- New Products -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="product-icon">
+                    <svg viewBox="0 0 24 24" class="product-svg">
+                        <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
+                        <path d="M12,7 L12,17 M7,12 L17,12" class="icon-path"></path>
+                    </svg>
+                </div>
+                <h3>Website Development</h3>
+                <p>Custom website design services to create visually appealing and user-friendly websites tailored to your business needs.</p>
+                <ul class="feature-list">
+                    <li>Responsive design for all devices</li>
+                    <li>SEO-friendly structure</li>
+                    <li>Fast loading times</li>
+                </ul>
+                <a href="website-development.html" class="learn-more">Learn More <span class="arrow">→</span></a>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="product-icon">
+                    <svg viewBox="0 0 24 24" class="product-svg">
+                        <circle cx="12" cy="12" r="10" class="icon-bg"></circle>
+                        <path d="M4,4 L20,4 L20,20 L4,20 Z" class="icon-path"></path>
+                        <path d="M4,4 L20,20" class="icon-path"></path>
+                    </svg>
+                </div>
+                <h3>Mobile App Development</h3>
+                <p>End-to-end mobile app development services for iOS and Android platforms, ensuring a seamless user experience.</p>
+                <ul class="feature-list">
+                    <li>Cross-platform compatibility</li>
+                    <li>User-friendly interfaces</li>
+                    <li>Integration with existing systems</li>
+                </ul>
+                <a href="mobile-app-development.html" class="learn-more">Learn More <span class="arrow">→</span></a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Integrations Section -->
     <section id="integrations" class="integrations-section">
