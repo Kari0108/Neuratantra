@@ -6,7 +6,6 @@
     <title>AgentOS Lite - Enterprise Agent Orchestration Platform | NeuraTantraAI</title>
     <meta name="description" content="Enterprise-grade agent orchestration platform with advanced security, compliance, and scalable workflows for modern businesses.">
 
-    <!-- External Stylesheets -->
     <link rel="stylesheet" href="stylu.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -16,6 +15,27 @@
         body {
             margin: 0;
             padding-bottom: 0;
+        }
+
+        /* Explicitly remove underlines/lines from all headings */
+        h1, h2, h3, h4, h5, h6 {
+            text-decoration: none !important; /* Ensure no text underlines */
+            border-bottom: none !important; /* Remove any bottom borders */
+            box-shadow: none !important; /* Remove any box shadows that might look like lines */
+        }
+
+        /* Also explicitly ensure no pseudo-elements create lines on headings */
+        h1::before, h1::after,
+        h2::before, h2::after,
+        h3::before, h3::after,
+        h4::before, h4::after,
+        h5::before, h5::after,
+        h6::before, h6::after {
+            display: none !important;
+            content: none !important;
+            border: none !important;
+            background: none !important;
+            transform: none !important;
         }
 
         /* Hero Section */
@@ -128,6 +148,8 @@
             transition: all 0.4s ease;
         }
 
+        /* Removed ::before pseudo-element that previously created a line on feature cards */
+        /*
         .feature-card::before {
             content: '';
             position: absolute;
@@ -143,6 +165,7 @@
         .feature-card:hover::before {
             transform: scaleX(1);
         }
+        */
 
         .feature-card:hover {
             transform: translateY(-8px);
@@ -198,7 +221,7 @@
         /* Integration Workflows */
         .workflow-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr); /* Changed from auto-fit to 4, 1fr */
             gap: 1.5rem;
             margin-top: 3rem;
         }
@@ -402,6 +425,12 @@
             }
         }
 
+        @media (max-width: 992px) { /* Adjust breakpoint as needed */
+            .workflow-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Revert for smaller screens */
+            }
+        }
+
         /* Section spacing */
         .section {
             padding: 6rem 0;
@@ -415,10 +444,8 @@
     </style>
 </head>
 <body>
-<!-- Navigation will be loaded here -->
 <div id="navbar-placeholder"></div>
 
-<!-- Hero Section -->
 <section class="hero-section">
     <div class="hero-background"></div>
     <div class="container">
@@ -461,7 +488,6 @@
     </div>
 </section>
 
-<!-- Key Features Section -->
 <section class="section">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
@@ -518,7 +544,6 @@
     </div>
 </section>
 
-<!-- Integration Workflows Section -->
 <section class="section" style="background: rgba(22, 22, 45, 0.3);">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
@@ -533,19 +558,19 @@
                 <p>Automated data ingestion, transformation, and analysis workflows with real-time processing capabilities.</p>
             </div>
 
-            <div class="workflow-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="workflow-item" data-aos="zoom-in" data-aos-delay="100">
                 <div class="workflow-icon">💬</div>
                 <h3 class="workflow-title">Customer Support</h3>
                 <p>Intelligent ticket routing, sentiment analysis, and automated response generation for customer queries.</p>
             </div>
 
-            <div class="workflow-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="workflow-item" data-aos="zoom-in" data-aos-delay="100">
                 <div class="workflow-icon">📈</div>
                 <h3 class="workflow-title">Business Intelligence</h3>
                 <p>Automated report generation, predictive analytics, and real-time dashboard updates for decision making.</p>
             </div>
 
-            <div class="workflow-item" data-aos="zoom-in" data-aos-delay="400">
+            <div class="workflow-item" data-aos="zoom-in" data-aos-delay="100">
                 <div class="workflow-icon">🔄</div>
                 <h3 class="workflow-title">Process Automation</h3>
                 <p>End-to-end workflow automation with conditional logic, approval processes, and exception handling.</p>
@@ -554,7 +579,6 @@
     </div>
 </section>
 
-<!-- Security & Compliance Section -->
 <section class="section">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
@@ -614,7 +638,6 @@
     </div>
 </section>
 
-<!-- Case Studies Section -->
 <section class="section" style="background: rgba(22, 22, 45, 0.3);">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
@@ -695,7 +718,6 @@
     </div>
 </section>
 
-<!-- CTA Section -->
 <section class="section">
     <div class="container">
         <div class="cta-section" data-aos="zoom-in">
@@ -715,10 +737,8 @@
     </div>
 </section>
 
-<!-- Footer will be loaded here -->
 <div id="footer-placeholder"></div>
 
-<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
     // Initialize AOS
